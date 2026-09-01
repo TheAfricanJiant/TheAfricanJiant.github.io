@@ -62,21 +62,41 @@ function absolutize(src, repo, branch) {
   return `https://raw.githubusercontent.com/${USER}/${repo}/${branch}/${encodeURI(clean)}`;
 }
 
-function firstImage(md, repo, branch) {
-  if (!md) return null;
+/** every usable image in the README, in document order, de-duplicated */
+function collectImages(md, repo, branch) {
+  if (!md) return [];
   const candidates = [];
 
   for (const m of md.matchAll(/!\[[^\]]*\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g)) candidates.push(m[1]);
   for (const m of md.matchAll(/<img[^>]+src=["']([^"']+)["']/gi))          candidates.push(m[1]);
 
+  const out = [];
   for (const c of candidates) {
     if (BADGE.test(c)) continue;
     if (!/\.(png|jpe?g|gif|webp|avif|svg)(\?|#|$)/i.test(c) &&
         !/raw\.githubusercontent|user-images\.githubusercontent|github\.com\/user-attachments/i.test(c)) continue;
     const url = absolutize(c, repo, branch);
-    if (url) return url;
+    if (url && !out.includes(url)) out.push(url);
+    if (out.length >= 6) break;
   }
-  return null;
+  return out;
+}
+
+/** bullet points from the README - shown as "Highlights" in the dossier */
+function highlights(md) {
+  if (!md) return [];
+  const out = [];
+  for (const m of md.matchAll(/^\s*[-*+]\s+(?!\[)(.{12,140})$/gm)) {
+    const t = m[1]
+      .replace(/`([^`]*)`/g, '$1')
+      .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+      .replace(/[*_#]/g, '')
+      .replace(/<[^>]+>/g, '')
+      .trim();
+    if (t && !/^https?:/i.test(t) && !out.includes(t)) out.push(t);
+    if (out.length >= 6) break;
+  }
+  return out;
 }
 
 function readmeTitle(md) {
@@ -86,7 +106,7 @@ function readmeTitle(md) {
   return t.length > 2 && t.length < 60 ? t : null;
 }
 
-function readmeBlurb(md) {
+function readmeBlurb(md, max = 230, take = 1) {
   if (!md) return null;
   const body = md
     .replace(/```[\s\S]*?```/g, '')                 // code fences
@@ -96,13 +116,17 @@ function readmeBlurb(md) {
     .replace(/<[^>]+>/g, '')                        // html
     .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1');       // links -> text
 
+  const paras = [];
   for (const para of body.split(/\n\s*\n/)) {
     const p = para.replace(/\s+/g, ' ').trim();
-    if (p.length > 40 && !/^[-*|>]/.test(p)) {
-      return p.length > 230 ? p.slice(0, 227).replace(/\s+\S*$/, '') + '...' : p;
-    }
+    if (p.length > 40 && !/^[-*|>]/.test(p)) paras.push(p);
+    if (paras.length >= take) break;
   }
-  return null;
+  if (!paras.length) return null;
+  const joined = paras.join('\n\n');
+  return joined.length > max
+    ? joined.slice(0, max - 3).replace(/\s+\S*$/, '') + '...'
+    : joined;
 }
 
 const titleize = n => n
@@ -129,6 +153,8 @@ for (const r of repos) {
   }
 
   const branch = r.default_branch || 'main';
+  const images = collectImages(md, r.name, branch);
+
   const project = {
     name: r.name,
     title: readmeTitle(md) || titleize(r.name),
@@ -141,12 +167,15 @@ for (const r of repos) {
     forks: r.forks_count,
     updated: r.pushed_at,
     created: r.created_at,
-    image: firstImage(md, r.name, branch),
+    image: images[0] || null,
+    images,
+    readme: readmeBlurb(md, 620, 2),
+    highlights: highlights(md),
     featured: (r.topics || []).includes('featured')
   };
 
   projects.push(project);
-  console.log(`  + ${project.name.padEnd(30)} ${project.image ? 'img' : '---'}  ${project.language || ''}`);
+  console.log(`  + ${project.name.padEnd(30)} ${String(images.length).padStart(2)} img  ${project.language || ''}`);
 }
 
 projects.sort((a, b) =>
