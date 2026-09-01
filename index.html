@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TheAfricanJiant — Robotics &amp; SLAM Engineer</title>
+<meta name="description" content="Robotics engineer from Cameroon building autonomous systems: ROS 2, SLAM, embedded C++ and perception hardware.">
+<meta name="author" content="TheAfricanJiant">
+<meta name="theme-color" content="#14110e">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="TheAfricanJiant — Robotics &amp; SLAM Engineer">
+<meta property="og:description" content="Autonomous systems, ROS 2, SLAM and embedded hardware. Built in Cameroon.">
+<meta property="og:image" content="assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%2314110e'/><circle cx='50' cy='50' r='26' fill='none' stroke='%23d97757' stroke-width='7'/><circle cx='50' cy='50' r='7' fill='%23d97757'/></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- ── boot overlay ─────────────────────────────────────────── -->
+<div id="boot" class="boot" aria-hidden="true">
+  <pre id="bootlog" class="boot__log"></pre>
+</div>
+
+<a class="skip" href="#work">Skip to projects</a>
+
+<!-- ── nav ──────────────────────────────────────────────────── -->
+<header class="nav">
+  <a class="nav__mark" href="#top" aria-label="Home">
+    <span class="nav__dot"></span><span>TAJ</span>
+  </a>
+  <nav class="nav__links">
+    <a href="#work">Work</a>
+    <a href="#stack">Stack</a>
+    <a href="#journey">Journey</a>
+    <a href="https://github.com/TheAfricanJiant" target="_blank" rel="noopener">GitHub&nbsp;↗</a>
+  </nav>
+</header>
+
+<main id="top">
+
+<!-- ── hero ─────────────────────────────────────────────────── -->
+<section class="hero">
+  <canvas id="lidar" class="hero__canvas" aria-hidden="true"></canvas>
+  <div class="hero__grid" aria-hidden="true"></div>
+
+  <div class="hero__inner">
+    <p class="eyebrow reveal">
+      <span class="pulse"></span> Buea, Cameroon &nbsp;·&nbsp; <span id="clock">--:--:--</span> WAT
+    </p>
+
+    <h1 class="hero__title reveal">
+      I teach machines<br>to <em>find their way.</em>
+    </h1>
+
+    <p class="hero__lede reveal">
+      Robotics &amp; SLAM engineer. I build autonomous systems from the silicon
+      up — ROS&nbsp;2 stacks, embedded C++, sensor fusion and the scrappy
+      hardware that carries them.
+    </p>
+
+    <div class="hero__cta reveal">
+      <a class="btn btn--solid" href="#work">See the builds <span>→</span></a>
+      <a class="btn" href="https://github.com/TheAfricanJiant" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+
+  <!-- telemetry strip -->
+  <div class="telemetry reveal" id="telemetry">
+    <div class="tel"><span class="tel__k">Repositories</span><span class="tel__v" data-tel="repos">—</span></div>
+    <div class="tel"><span class="tel__k">Primary stack</span><span class="tel__v" data-tel="lang">—</span></div>
+    <div class="tel"><span class="tel__k">Last commit</span><span class="tel__v" data-tel="push">—</span></div>
+    <div class="tel"><span class="tel__k">Status</span><span class="tel__v tel__v--ok">Building</span></div>
+  </div>
+</section>
+
+<!-- ── work ─────────────────────────────────────────────────── -->
+<section id="work" class="section">
+  <div class="section__head">
+    <h2 class="section__title"><span class="idx">01</span> Field log</h2>
+    <p class="section__sub">
+      Pulled live from GitHub. Every repo below updates itself — descriptions,
+      topics, cover images and commit dates sync automatically.
+    </p>
+  </div>
+
+  <div class="filters" id="filters" role="tablist" aria-label="Filter projects"></div>
+
+  <div class="grid" id="projects">
+    <div class="loading">Establishing uplink to github.com…</div>
+  </div>
+
+  <p class="synced" id="synced"></p>
+</section>
+
+<!-- ── stack ────────────────────────────────────────────────── -->
+<section id="stack" class="section section--alt">
+  <div class="section__head">
+    <h2 class="section__title"><span class="idx">02</span> Systems I speak</h2>
+  </div>
+
+  <div class="specs">
+    <div class="spec">
+      <h3>Robotics middleware</h3>
+      <ul><li>ROS 2 (Humble / Jazzy)</li><li>Nav2 &amp; behaviour trees</li><li>tf2, URDF, Gazebo</li><li>micro-ROS</li></ul>
+    </div>
+    <div class="spec">
+      <h3>Perception &amp; state</h3>
+      <ul><li>SLAM — EKF, graph &amp; visual</li><li>Sensor fusion (IMU + encoders)</li><li>OpenCV, point clouds</li><li>Edge Impulse / TinyML</li></ul>
+    </div>
+    <div class="spec">
+      <h3>Embedded</h3>
+      <ul><li>C / C++17</li><li>Arduino, ESP32, XRP</li><li>Motor control &amp; odometry</li><li>PCB bring-up, I²C / SPI / UART</li></ul>
+    </div>
+    <div class="spec">
+      <h3>Toolchain</h3>
+      <ul><li>Python 3</li><li>Linux, bash, colcon</li><li>Git &amp; CI</li><li>CMake</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── journey ──────────────────────────────────────────────── -->
+<section id="journey" class="section">
+  <div class="section__head">
+    <h2 class="section__title"><span class="idx">03</span> Trajectory</h2>
+    <p class="section__sub">Where the work is heading, and what it took to get here.</p>
+  </div>
+
+  <ol class="timeline">
+    <li class="timeline__item reveal">
+      <span class="timeline__when">Mar 2025 — Dec 2025</span>
+      <h3>The 10-month ROS 2 challenge</h3>
+      <p>Ten months, one discipline: a public, dated log of ROS 2 projects and
+      resources built in the open. Nodes, navigation, simulation — shipped
+      incrementally rather than perfectly.</p>
+    </li>
+    <li class="timeline__item reveal">
+      <span class="timeline__when">Ongoing</span>
+      <h3>Road to SLAM engineer</h3>
+      <p>Working through the fundamentals that autonomy actually rests on —
+      probabilistic state estimation, transforms, loop closure — alongside the
+      Hardware Community in Buea.</p>
+    </li>
+    <li class="timeline__item reveal">
+      <span class="timeline__when">Now</span>
+      <h3>Hardware that leaves the bench</h3>
+      <p>ArIa-Roomba, pick-and-place arms, Project NYX. Less demo, more device:
+      things that run unattended and survive contact with the real world.</p>
+    </li>
+  </ol>
+</section>
+
+<!-- ── contact ──────────────────────────────────────────────── -->
+<section id="contact" class="section section--alt contact">
+  <h2 class="contact__title">Building something<br>that has to move?</h2>
+  <p class="contact__sub">Open to robotics collaborations, research and hardware work.</p>
+  <div class="contact__links">
+    <a class="btn btn--solid" href="mailto:plastibytes@gmail.com">Get in touch <span>→</span></a>
+    <a class="btn" href="https://github.com/TheAfricanJiant" target="_blank" rel="noopener">github.com/TheAfricanJiant</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <span>© <span id="year">2026</span> TheAfricanJiant · Buea, Cameroon</span>
+  <span class="foot__meta">Static site · synced by GitHub Actions</span>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
