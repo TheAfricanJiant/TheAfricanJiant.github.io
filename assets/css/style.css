@@ -529,21 +529,49 @@ button{ font:inherit; color:inherit; }
 }
 .spec.in li .bar{ width:var(--w); }
 
-/* ══ also (background skills) ═════════════════════════════ */
+/* ══ also (background skills + terminal) ══════════════════ */
 .also{
   max-width:var(--wrap); margin:1.25rem auto 0;
-  display:flex; flex-wrap:wrap; align-items:center; gap:.7rem 1.1rem;
-  padding:1rem 1.25rem; background:var(--bg-2);
+  display:grid; grid-template-columns:1fr minmax(280px,340px);
+  gap:1.25rem; align-items:center;
+  padding:1.15rem 1.25rem; background:var(--bg-2);
   border:1px solid var(--line-soft); border-radius:var(--r);
 }
 .also__label{
-  flex:0 0 auto; font-family:var(--mono); font-size:.6rem;
-  letter-spacing:.16em; text-transform:uppercase; color:var(--faint);
+  display:block; margin-bottom:.7rem; font-family:var(--mono);
+  font-size:.6rem; letter-spacing:.16em; text-transform:uppercase; color:var(--faint);
 }
-.also__list{ list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:.5rem .9rem; }
+.also__list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:.4rem; }
 .also__list li{ font-size:.85rem; color:var(--muted); }
 .also__list b{ font-weight:500; color:var(--text-2); }
-.also__list li + li::before{ content:"·"; margin-right:.9rem; color:var(--faint); }
+
+/* mini terminal */
+.term{
+  --term:#6ee787;
+  background:#0b0f0c; border:1px solid #1c2a1f; border-radius:10px;
+  overflow:hidden; font-family:var(--mono);
+  box-shadow:inset 0 0 40px rgba(110,231,135,.05);
+}
+.term__bar{
+  display:flex; gap:5px; padding:.45rem .6rem;
+  background:#0f150f; border-bottom:1px solid #1c2a1f;
+}
+.term__bar i{ width:7px; height:7px; border-radius:50%; background:#243024; }
+.term__bar i:first-child{ background:#2f4a33; }
+.term__body{
+  margin:0; padding:.65rem .75rem; height:9.1em; overflow:hidden;
+  font-size:.65rem; line-height:1.52; color:var(--term);
+  white-space:pre-wrap; word-break:break-word;
+}
+.term__body .p{ color:#3f7a4d; }   /* prompt   */
+.term__body .d{ color:#8aa892; }   /* output   */
+.term__cur{
+  display:inline-block; width:6px; height:.95em; vertical-align:-.12em;
+  background:var(--term); animation:tblink 1s steps(1) infinite;
+}
+@keyframes tblink{ 50%{ opacity:0; } }
+@media (max-width:760px){ .also{ grid-template-columns:1fr; } }
+@media (prefers-reduced-motion:reduce){ .term__cur{ animation:none; } }
 
 /* ══ timeline ═════════════════════════════════════════════ */
 .timeline{ max-width:800px; margin:0 auto; padding:0 0 0 1.9rem; list-style:none;

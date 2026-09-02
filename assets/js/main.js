@@ -547,3 +547,66 @@ async function liveFallback() {
   telemetry(data);
   paint();
 })();
+
+/* ---------------------------------------------------------------
+   9. Mini terminal — bug-bounty flavour, types when scrolled into view
+   --------------------------------------------------------------- */
+(function terminal() {
+  const out = $('#term-out');
+  const box = $('#term');
+  if (!out || !box) return;
+
+  /* [class, text] — 'c' is typed a character at a time, the rest appear whole */
+  const SEQ = [
+    ['p', '$ '], ['c', 'recon --scope *.target.io\n'], ['d', '[+] 14 hosts · 3 live\n'],
+    ['p', '$ '], ['c', 'ffuf -u https://target.io/FUZZ\n'], ['d', '[200] /.git/config\n'],
+    ['p', '$ '], ['c', 'report --severity high\n'], ['d', 'triaged · bounty paid\n']
+  ];
+
+  const esc  = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+  const full = () => SEQ.map(([k, t]) => k === 'c' ? esc(t) : `<span class="${k}">${esc(t)}</span>`).join('');
+
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    out.innerHTML = full();
+    return;
+  }
+
+  let si = 0, ci = 0, buf = '', timer = null;
+
+  function step() {
+    if (si >= SEQ.length) {
+      timer = setTimeout(() => { buf = ''; si = ci = 0; out.innerHTML = ''; step(); }, 2800);
+      return;
+    }
+    const [kind, txt] = SEQ[si];
+
+    if (kind !== 'c') {                       /* prompt or output line */
+      buf += `<span class="${kind}">${esc(txt)}</span>`;
+      out.innerHTML = buf;
+      si++;
+      timer = setTimeout(step, 110);
+      return;
+    }
+
+    ci++;                                     /* typed command */
+    out.innerHTML = buf + esc(txt.slice(0, ci));
+    if (ci >= txt.length) {
+      buf += esc(txt); si++; ci = 0;
+      timer = setTimeout(step, 430);
+    } else {
+      timer = setTimeout(step, 34 + Math.random() * 40);
+    }
+  }
+
+  step();                                   /* start straight away … */
+
+  /* … and idle it whenever the box is scrolled off screen */
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(es => {
+      for (const e of es) {
+        if (e.isIntersecting) { if (!timer) step(); }
+        else if (timer) { clearTimeout(timer); timer = null; }
+      }
+    }, { threshold: 0.25 }).observe(box);
+  }
+})();
