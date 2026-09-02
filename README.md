@@ -1,4 +1,4 @@
-# TheAfricanJiant — portfolio
+# Tambu Precious — portfolio
 
 A self-updating robotics portfolio. No build step, no framework, no `node_modules`
 on your machine — plain HTML, CSS and JS, with a GitHub Action that keeps the
