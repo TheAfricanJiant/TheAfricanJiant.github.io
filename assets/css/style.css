@@ -744,3 +744,12 @@ body.locked{ overflow:hidden; }
   .portrait__scan, .scrollcue span{ display:none; }
   *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; }
 }
+
+/* --- dossier: sub-projects found in nested READMEs -------------- */
+.d-subs{list-style:none;margin:0 0 1.4rem;padding:0;display:grid;gap:.7rem}
+.d-subs li{border-left:2px solid var(--line,#2a2a2a);padding:.15rem 0 .15rem .8rem}
+.d-subs a{color:var(--accent);text-decoration:none;font-weight:600}
+.d-subs a:hover{text-decoration:underline}
+.d-subs a span{font-size:.8em;opacity:.7}
+.d-subs p{margin:.25rem 0 .3rem;font-size:.9rem;opacity:.8;line-height:1.5}
+.d-subs code{font-size:.75rem;opacity:.55}

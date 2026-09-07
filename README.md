@@ -23,7 +23,8 @@ project list in sync with your repos.
 | Repo description       | Card body text (falls back to the first real paragraph of the README) |
 | Repo **topics**        | The tag chips + the filter buttons |
 | Language               | The coloured dot on the card   |
-| First image in README  | **The card cover photo**       |
+| Any image in the repo  | **The card cover photo** (see below) |
+| Nested `README.md` files | The "Inside this repo" list in the dossier |
 | Last push date         | "updated 3d ago"               |
 
 So after setup you never touch this repo again. You just work on your robots.
@@ -104,9 +105,10 @@ gh repo edit TheAfricanJiant/Practical-C-  --add-topic cpp --add-topic learning
 
 ### b) Put a photo or GIF at the top of each README
 
-This is the single highest-leverage thing you can do. The sync grabs the **first
-real image** in the README and uses it as the card cover. Badges (shields.io etc.)
-are skipped automatically.
+You do not *have* to — every repo gets a cover either way (see
+[How cover images are found](#how-cover-images-are-found)) — but the top image of
+the root README is the one thing you fully control, so it is still the highest-leverage
+tweak. Badges (shields.io etc.) are skipped automatically.
 
 ```markdown
 # ArIa Roomba
@@ -126,8 +128,45 @@ For robotics, a **short GIF of the thing moving** beats any still photo. `ffmpeg
 ffmpeg -i clip.mp4 -vf "fps=12,scale=800:-1" -t 6 docs/demo.gif
 ```
 
-Repos with no image get a generated terracotta placeholder — it looks
-deliberate, not broken, so nothing is urgent.
+---
+
+## How cover images are found
+
+The sync does not depend on your repos being laid out any particular way. For each
+repo it tries four passes in order and takes the first image that actually loads:
+
+| Pass | Where it looks | Typical repo |
+|------|----------------|--------------|
+| 1 | Images referenced by the **root README** | a single-project repo with a hero shot |
+| 2 | Images referenced by any **nested README** (`projects/*/README.md`, `docs/README.md`, …), with relative paths like `../../assets/x.png` resolved against that README's own folder | a monorepo holding several projects |
+| 3 | **Any image file anywhere in the repo tree**, ranked by filename (`cover`, `hero`, `demo`, `screenshot` score high; `icon`, `logo`, `favicon` score low), by folder (`assets/`, `images/`, `docs/`, `media/` …) and by file size | a repo that never bothered to embed the image in a README |
+| 4 | The **GitHub OpenGraph social preview**, `opengraph.githubassets.com/1/user/repo` | a repo with no images at all — this one always exists |
+
+Two details that keep the grid from ever showing a broken tile:
+
+- **Every candidate URL is fetched before it is written out.** A renamed folder or a
+  deleted file cannot ship to `projects.json` as a dead `<img>`.
+- **The browser gets the whole list, not just the winner.** Each card carries its
+  remaining candidates and falls through them on error, ending at the social
+  preview. So even if a file disappears *between* nightly syncs, the tile still
+  shows something.
+
+Paths are percent-encoded once and only once, so filenames with spaces
+(`NYX FUSION60 DESIGNS.png`) resolve correctly, and `github.com/…/blob/…` links
+are rewritten to `raw.githubusercontent.com` so they render as images rather than
+as HTML pages.
+
+### Multi-project repos
+
+When a repo has READMEs below the root, the sync also reads their `# Heading` and
+first paragraph and lists them in the project dossier under **"Inside this repo"**,
+each linking to that README on GitHub. Laying a repo out like this is enough:
+
+```
+projects/
+  01_teleop_microros/README.md
+  02_stereo_ai_perception_xrp/README.md
+```
 
 ---
 
@@ -209,5 +248,6 @@ timeline dots, placeholders.
 ## Resilience
 
 If `data/projects.json` is missing or empty, the page queries the GitHub API
-directly from the browser. So the site is never blank — worst case it shows repos
-without cover images.
+directly from the browser and falls back to each repo's OpenGraph social preview
+for the cover. So the site is never blank, and never image-less — worst case the
+covers are GitHub's generated previews instead of your own photos.

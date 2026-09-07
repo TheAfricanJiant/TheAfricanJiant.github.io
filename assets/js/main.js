@@ -274,12 +274,58 @@ const dateOf = iso => iso
 let ALL = [];
 const state = { q: '', tag: '', sort: 'recent', view: 'grid' };
 
+/* ---------------------------------------------------------------
+   8a. Cover images
+   The sync script verifies every URL it writes, but repos move and
+   files get renamed between nightly runs. So each <img> carries an
+   ordered chain of alternatives and walks down it on error, ending
+   at the GitHub social preview, which exists for every repo.
+   --------------------------------------------------------------- */
+const ogFor = name => `https://opengraph.githubassets.com/1/${USER}/${encodeURIComponent(name)}`;
+
+function coverChain(p) {
+  const chain = [];
+  for (const u of [p.image, ...(p.images || []), p.og, ogFor(p.name)]) {
+    if (u && !chain.includes(u)) chain.push(u);
+  }
+  return chain;
+}
+
+/** <img> that falls through its remaining candidates before giving up. */
+function imgHTML(chain, { cls = '', lazy = true, initial = '/' } = {}) {
+  if (!chain.length) return `<div class="card__ph"><span>${esc(initial)}</span></div>`;
+  return `<img${cls ? ` class="${cls}"` : ''} src="${esc(chain[0])}" alt=""` +
+         `${lazy ? ' loading="lazy" decoding="async"' : ''}` +
+         ` data-chain="${esc(JSON.stringify(chain.slice(1)))}"` +
+         ` data-fallback="${esc(initial)}">`;
+}
+
+/** Wire the fall-through behaviour onto every chained <img> in a root. */
+function bindImageFallbacks(root) {
+  $$('img[data-chain]', root).forEach(img => {
+    let rest;
+    try { rest = JSON.parse(img.dataset.chain || '[]'); } catch { rest = []; }
+
+    img.addEventListener('error', function onErr() {
+      const next = rest.shift();
+      if (next) {
+        img.dataset.chain = JSON.stringify(rest);
+        img.src = next;                       // keeps the listener, tries again
+        return;
+      }
+      img.removeEventListener('error', onErr);
+      const ph = document.createElement('div');
+      ph.className = 'card__ph';
+      ph.innerHTML = `<span>${esc(img.dataset.fallback || '/')}</span>`;
+      img.replaceWith(ph);
+    });
+  });
+}
+
 /* -- card ---------------------------------------------------- */
 function cardHTML(p, featured) {
-  const initial = esc((p.title || p.name).trim()[0] || '/');
-  const cover = p.image
-    ? `<img src="${esc(p.image)}" alt="" loading="lazy" decoding="async" data-fallback="${initial}">`
-    : `<div class="card__ph"><span>${initial}</span></div>`;
+  const initial = (p.title || p.name).trim()[0] || '/';
+  const cover = imgHTML(coverChain(p), { initial });
   const tags = (p.topics || []).filter(t => t !== 'featured').slice(0, 4)
     .map(t => `<span class="tag">${esc(prettyTag(t))}</span>`).join('');
 
@@ -300,6 +346,7 @@ function cardHTML(p, featured) {
       <div class="card__meta">
         ${p.language ? `<span class="lang"><i class="dot"></i>${esc(p.language)}</span>` : ''}
         ${p.stars ? `<span>&#9733; ${p.stars}</span>` : ''}
+        ${p.sections?.length ? `<span>${p.sections.length} sub-project${p.sections.length > 1 ? 's' : ''}</span>` : ''}
         <span>updated ${esc(ago(p.updated))}</span>
       </div>
     </div>
@@ -315,11 +362,14 @@ function openDrawer(name) {
   if (!p) return;
   lastFocus = document.activeElement;
 
-  const gallery = (p.images || []).filter(u => u !== p.image).slice(0, 4);
+  const initial = (p.title || p.name).trim()[0] || '/';
+  const chain = coverChain(p);
+  const hero = chain[0];
+  const gallery = (p.images || []).filter(u => u !== hero).slice(0, 4);
   const tags = (p.topics || []).filter(t => t !== 'featured');
 
   $('#d-body').innerHTML = `
-    ${p.image ? `<figure class="d-hero"><img src="${esc(p.image)}" alt=""></figure>` : ''}
+    ${hero ? `<figure class="d-hero">${imgHTML(chain, { lazy: false, initial })}</figure>` : ''}
     <p class="d-kicker">${esc(p.language || 'Project')} · updated ${esc(ago(p.updated))}</p>
     <h2 class="d-title" id="d-title">${esc(p.title || titleize(p.name))}</h2>
     <p class="d-desc">${esc(p.description || 'No description on the repository yet.')}</p>
@@ -332,6 +382,15 @@ function openDrawer(name) {
       <div><dt>Forks</dt><dd>${p.forks ?? 0}</dd></div>
     </dl>
 
+    ${p.sections?.length ? `
+      <h3 class="d-h">Inside this repo</h3>
+      <ul class="d-subs">${p.sections.map(s => `
+        <li>
+          <a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)} <span>↗</span></a>
+          ${s.blurb ? `<p>${esc(s.blurb)}</p>` : ''}
+          <code>${esc(s.path)}</code>
+        </li>`).join('')}</ul>` : ''}
+
     ${p.highlights?.length ? `
       <h3 class="d-h">Highlights</h3>
       <ul class="d-list">${p.highlights.slice(0, 6).map(h => `<li>${esc(h)}</li>`).join('')}</ul>` : ''}
@@ -340,12 +399,15 @@ function openDrawer(name) {
 
     ${gallery.length ? `
       <h3 class="d-h">Gallery</h3>
-      <div class="d-gallery">${gallery.map(u => `<img src="${esc(u)}" alt="" loading="lazy">`).join('')}</div>` : ''}
+      <div class="d-gallery">${gallery.map(u =>
+        imgHTML([u], { initial })).join('')}</div>` : ''}
 
     <div class="d-actions">
       <a class="btn btn--solid" href="${esc(p.url)}" target="_blank" rel="noopener">Open on GitHub <span>↗</span></a>
       ${p.homepage ? `<a class="btn" href="${esc(p.homepage)}" target="_blank" rel="noopener">Live demo <span>↗</span></a>` : ''}
     </div>`;
+
+  bindImageFallbacks($('#d-body'));
 
   drawer.hidden = false;
   document.body.classList.add('locked');
@@ -371,7 +433,8 @@ function visible() {
       if (!tokens.includes(state.tag)) return false;
     }
     if (!q) return true;
-    return [p.name, p.title, p.description, p.language, ...(p.topics || [])]
+    return [p.name, p.title, p.description, p.language,
+            ...(p.topics || []), ...(p.sections || []).map(s => s.title)]
       .filter(Boolean).join(' ').toLowerCase().includes(q);
   });
 
@@ -395,15 +458,7 @@ function paint() {
     cardHTML(p, state.view === 'grid' && i === 0 && !state.q && !state.tag)).join('');
   $('#empty').hidden = list.length > 0;
 
-  $$('#projects img[data-fallback]').forEach(img => {
-    img.addEventListener('error', () => {
-      const ph = document.createElement('div');
-      ph.className = 'card__ph';
-      ph.innerHTML = `<span>${esc(img.dataset.fallback)}</span>`;
-      img.replaceWith(ph);
-    }, { once: true });
-  });
-
+  bindImageFallbacks(grid);
   $$('#projects .reveal').forEach(watch);
 }
 
@@ -520,7 +575,9 @@ async function liveFallback() {
         name: x.name, title: titleize(x.name), description: x.description,
         url: x.html_url, homepage: x.homepage, language: x.language,
         topics: x.topics || [], stars: x.stargazers_count, forks: x.forks_count,
-        updated: x.pushed_at, created: x.created_at, image: null,
+        updated: x.pushed_at, created: x.created_at,
+        // no snapshot to mine, but the social preview always renders
+        image: ogFor(x.name), images: [], og: ogFor(x.name), sections: [],
         featured: (x.topics || []).includes('featured')
       }))
   };
