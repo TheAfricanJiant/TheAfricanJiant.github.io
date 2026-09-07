@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-07T10:09:44.886Z",
+  "generated": "2026-09-07T14:49:44.361Z",
   "profile": {
     "login": "TheAfricanJiant",
     "name": "Tambu Precious",
@@ -20,16 +20,36 @@
       "topics": [],
       "stars": 1,
       "forks": 0,
-      "updated": "2026-09-07T03:03:08Z",
+      "updated": "2026-09-07T14:48:16Z",
       "created": "2025-04-04T22:23:12Z",
-      "image": null,
-      "images": [],
+      "image": "https://raw.githubusercontent.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge/main/assets/images/teleop_microros_demo.png",
+      "images": [
+        "https://raw.githubusercontent.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge/main/assets/images/teleop_microros_demo.png",
+        "https://img.youtube.com/vi/8mwOU-UvqDQ/hqdefault.jpg"
+      ],
+      "og": "https://opengraph.githubassets.com/1/TheAfricanJiant/ROS--2-Ten-Months-Challenge",
       "readme": "A long-term ROS 2 robotics challenge documenting my progression from ROS 2 fundamentals and micro-ROS to AI perception, stereo vision, SLAM, and autonomous robotics using the XRP platform.\n\nThis repository is a **collection of practical ROS 2 projects**. Each project lives in its own folder under `projects/` with its own README, firmware, and ROS 2 workspace, so it can be read, built, and run independently.",
       "highlights": [
         "ROS 2 Jazzy — installation guide",
         "micro-ROS Agent — first application tutorial",
         "PlatformIO (VS Code extension or CLI) for building microcontroller firmware",
-        "colcon, rosdep, and a working ~/ros2ws build setup"
+        "colcon, rosdep, and a working ~/ros2ws build setup",
+        "micro-ROS transport working over Wi-Fi (UDP)",
+        "Keyboard teleoperation driving real motors"
+      ],
+      "sections": [
+        {
+          "title": "🎮 Project 01 — Teleoperation with micro-ROS",
+          "path": "projects/01_teleop_microros/README.md",
+          "blurb": "Keyboard teleoperation of a differential-drive robot: ROS 2 on the host publishes `/cmd_vel`, a custom node converts it to motor commands, and an ESP32 running micro-ROS...",
+          "url": "https://github.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge/blob/main/projects/01_teleop_microros/README.md"
+        },
+        {
+          "title": "👁️ Project 02 — Stereo AI Perception Robot (XRP)",
+          "path": "projects/02_stereo_ai_perception_xrp/README.md",
+          "blurb": "A Raspberry Pi 5 running ROS 2 with **two night-vision cameras** for stereo depth and **two Grove AI V2 modules** for on-module object detection, driving an **XRP** robot...",
+          "url": "https://github.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge/blob/main/projects/02_stereo_ai_perception_xrp/README.md"
+        }
       ],
       "featured": false
     },
@@ -49,6 +69,7 @@
       "images": [
         "https://img.youtube.com/vi/o28n6NV4aHE/maxresdefault.jpg"
       ],
+      "og": "https://opengraph.githubassets.com/1/TheAfricanJiant/Eviatech_2025",
       "readme": "[](https://www.youtube.com/watch?v=o28n6NV4aHE)\n\n[](https://platformio.org/) [](https://store.arduino.cc/products/arduino-nano-33-ble) [](https://www.espressif.com/) [](https://isocpp.org/) [](https://dashio.io/guide-arduino-nano33ble/) [](https://www.linkedin.com/in/tambu-precious-29bb67217/) [](LICENSE)",
       "highlights": [
         "Creator & Lead Developer: Tambu Precious Takum",
@@ -58,6 +79,7 @@
         "Function: Autonomous combat sumo bot designed for arena survival and ring pushing.",
         "Motor Control: Dual-channel PWM differential drive with soft acceleration and sudden-stop counter-thrust routines (motors.h)."
       ],
+      "sections": [],
       "featured": false
     },
     {
@@ -81,6 +103,7 @@
         "https://raw.githubusercontent.com/TheAfricanJiant/ArIa-Roomba/main/heading.png",
         "https://raw.githubusercontent.com/TheAfricanJiant/ArIa-Roomba/main/Nav-dashboard.png"
       ],
+      "og": "https://opengraph.githubassets.com/1/TheAfricanJiant/ArIa-Roomba",
       "readme": "Records labelled vacuum audio clips from a **Seeed ReSpeaker Lite** (ESP32-S3) and saves them as `.wav` files ready for upload to **Edge Impulse**.\n\nThis demo showcases ARIA's core capabilities running live on the Arduino UNO Q:",
       "highlights": [
         "socat PTY,raw,echo=0,link=./xrp-serial TCP:localhost:8888",
@@ -89,6 +112,32 @@
         "USB cable to PC",
         "Vacuum cleaner under test",
         "📐 Encoders & IMU — real-time wheel odometry and inertial measurement feeding the EKF pose estimator"
+      ],
+      "sections": [
+        {
+          "title": "ARIA — Step Four: Integrated Robot Platform 🤖",
+          "path": "ARIA-step-four/README.md",
+          "blurb": "ARIA Step Four is the integration of three prior projects into one cohesive app:",
+          "url": "https://github.com/TheAfricanJiant/ArIa-Roomba/blob/main/ARIA-step-four/README.md"
+        },
+        {
+          "title": "Telegram Bot",
+          "path": "telegram-bot-step-three/README.md",
+          "blurb": "The **Telegram Bot** example demonstrates how to create an interactive bot that responds to commands, analyzes text sentiment, and detects objects in images sent via Telegram.",
+          "url": "https://github.com/TheAfricanJiant/ArIa-Roomba/blob/main/telegram-bot-step-three/README.md"
+        },
+        {
+          "title": "Linux Blink with UI (JavaScript)",
+          "path": "UnoQXRPEKF-step-two/README.md",
+          "blurb": "The **Linux Blink** example shows a simple Linux application that changes the LED state on the board. It showcases basic event handling and UI updates through a web-based...",
+          "url": "https://github.com/TheAfricanJiant/ArIa-Roomba/blob/main/UnoQXRPEKF-step-two/README.md"
+        },
+        {
+          "title": "Linux Blink with UI (JavaScript)",
+          "path": "UnoQXRPmotor-step-one/README.md",
+          "blurb": "The **Linux Blink** example shows a simple Linux application that changes the LED state on the board. It showcases basic event handling and UI updates through a web-based...",
+          "url": "https://github.com/TheAfricanJiant/ArIa-Roomba/blob/main/UnoQXRPmotor-step-one/README.md"
+        }
       ],
       "featured": false
     },
@@ -113,6 +162,7 @@
         "https://raw.githubusercontent.com/TheAfricanJiant/Pick_and_Place/main/images/edge_impulse_step_11.png",
         "https://raw.githubusercontent.com/TheAfricanJiant/Pick_and_Place/main/images/edge_impulse_step_12.png"
       ],
+      "og": "https://opengraph.githubassets.com/1/TheAfricanJiant/Pick_and_Place",
       "readme": "[](https://www.edgeimpulse.com/) -00599C?style=for-the-badge) [](https://hwivc.org) [](https://github.com/TheAfricanJiant/Practical-C-) [](https://hwivc.org/blog/how-to-train-and-test-an-ai-model-on-edge-impulse)\n\n📖 Read Original Blog Tutorial • 📹 Watch YouTube Video Tutorials • 🦾 Practical C++ Hardware Masterclass • 📦 Download Project Datasets",
       "highlights": [
         "Input Resolution: $96 \\times 96$ RGB",
@@ -122,6 +172,7 @@
         "Prerequisite C++ Hardware Course: Practical C++ — BraccioV2 Masterclass",
         "3D Modeling & Printing Guide: 3D Modelling & Printing Step-by-Step"
       ],
+      "sections": [],
       "featured": false
     },
     {
@@ -136,10 +187,11 @@
       "forks": 0,
       "updated": "2026-09-01T11:32:44Z",
       "created": "2026-01-03T08:07:04Z",
-      "image": "https://raw.githubusercontent.com/TheAfricanJiant/Project_NYX_/main/images/NYX_NYX-FUSION60%2520DESIGNS.png",
+      "image": "https://raw.githubusercontent.com/TheAfricanJiant/Project_NYX_/main/images/NYX_NYX-FUSION60%20DESIGNS.png",
       "images": [
-        "https://raw.githubusercontent.com/TheAfricanJiant/Project_NYX_/main/images/NYX_NYX-FUSION60%2520DESIGNS.png"
+        "https://raw.githubusercontent.com/TheAfricanJiant/Project_NYX_/main/images/NYX_NYX-FUSION60%20DESIGNS.png"
       ],
+      "og": "https://opengraph.githubassets.com/1/TheAfricanJiant/Project_NYX_",
       "readme": "[](https://www.espressif.com/) [](https://platformio.org/) [](https://isocpp.org/) [](https://www.autodesk.com/products/fusion-360) [](https://techmasterevent.com/contest/master-of-espressif) [](LICENSE)\n\n📖 Read Web Writeup on Tech Master Event • 📁 3D Models (STL) • 🖼️ Media Gallery",
       "highlights": [
         "📷 100% Passive & Camera-Free: Zero optical cameras or audio microphones. Respects user privacy while maintaining spatial awareness.",
@@ -149,6 +201,7 @@
         "Frame Inspection: Intercepts 0xC0 (Deauthentication) and 0xA0 (Disassociation) frames.",
         "Distance Estimation: Calculates physical attacker proximity using Received Signal Strength Indicator (RSSI)."
       ],
+      "sections": [],
       "featured": false
     },
     {
@@ -172,12 +225,63 @@
         "https://raw.githubusercontent.com/TheAfricanJiant/epod/main/docs/media/xiao-esp32s3-sd.jpg",
         "https://raw.githubusercontent.com/TheAfricanJiant/epod/main/docs/media/enclosure-render-2.png"
       ],
+      "og": "https://opengraph.githubassets.com/1/TheAfricanJiant/epod",
       "readme": "No cloud, and no phone needed at the table. A camera sees a guest sit down, the screen wakes up, music starts, and the guest browses the menu by voice.\n\n[](https://espressif.com) [](https://platformio.org) [](https://edgeimpulse.com) [](mobile/README.md)",
       "highlights": [
         "The vision path does not run on the device yet. The current",
         "Voice accuracy depends on the room. Recognition is good on the training",
         "Vision and voice cannot run at the same time. The firmware enforces this",
         "Wi-Fi and audio streaming do not overlap. They share the 3.3 V rail, and"
+      ],
+      "sections": [
+        {
+          "title": "ePodd — ePod Companion App",
+          "path": "mobile/README.md",
+          "blurb": "[](https://android.com) [](https://kotlinlang.org) [](https://developer.android.com/jetpack/compose) [](#) [](#)",
+          "url": "https://github.com/TheAfricanJiant/epod/blob/main/mobile/README.md"
+        },
+        {
+          "title": "ePod Digital Signage",
+          "path": "webapp/README.md",
+          "blurb": "The restaurant menu page, browsed by voice. Copy this folder anywhere and run it.",
+          "url": "https://github.com/TheAfricanJiant/epod/blob/main/webapp/README.md"
+        },
+        {
+          "title": "ESP32-WROOM — UI and Playback Core",
+          "path": "firmware/esp32-wroom/README.md",
+          "blurb": "Everything the guest sees and hears. The WROOM owns the OLED, the buttons and the audio output, and nothing else, so that playback is never interrupted.",
+          "url": "https://github.com/TheAfricanJiant/epod/blob/main/firmware/esp32-wroom/README.md"
+        },
+        {
+          "title": "XIAO ESP32-S3 — AI and Media Core",
+          "path": "firmware/xiao-esp32s3/README.md",
+          "blurb": "The brain of the ePod. It holds both machine-learning models, the SD card library, both radios, and the HTTP API the signage web app talks to.",
+          "url": "https://github.com/TheAfricanJiant/epod/blob/main/firmware/xiao-esp32s3/README.md"
+        },
+        {
+          "title": "Edge Impulse DSP and Inferencing SDK",
+          "path": "firmware/xiao-esp32s3/lib/epod_inferencing/src/edge-impulse-sdk/README.md",
+          "blurb": "Portable library for digital signal processing and machine learning inferencing. This repository contains the device implementation in C++ for both processing and learning...",
+          "url": "https://github.com/TheAfricanJiant/epod/blob/main/firmware/xiao-esp32s3/lib/epod_inferencing/src/edge-impulse-sdk/README.md"
+        },
+        {
+          "title": "Dsp",
+          "path": "firmware/xiao-esp32s3/lib/epod_inferencing/src/edge-impulse-sdk/dsp/README.md",
+          "blurb": "See notes in the various block folders in studio/dsp-pipeline",
+          "url": "https://github.com/TheAfricanJiant/epod/blob/main/firmware/xiao-esp32s3/lib/epod_inferencing/src/edge-impulse-sdk/dsp/README.md"
+        },
+        {
+          "title": "KissFFT",
+          "path": "firmware/xiao-esp32s3/lib/epod_inferencing/src/edge-impulse-sdk/dsp/kissfft/README.md",
+          "blurb": "Software FFT library used for devices that do not have hardware accelerated RFFT, or where we want to use mixed-radix FFT. Based off of https://github.com/mborgerding/kissfft.",
+          "url": "https://github.com/TheAfricanJiant/epod/blob/main/firmware/xiao-esp32s3/lib/epod_inferencing/src/edge-impulse-sdk/dsp/kissfft/README.md"
+        },
+        {
+          "title": "PrivateInclude",
+          "path": "firmware/xiao-esp32s3/lib/epod_inferencing/src/edge-impulse-sdk/CMSIS/DSP/PrivateInclude/README.md",
+          "blurb": "Note: All files have been moved from this folder into Include to simplify build management",
+          "url": "https://github.com/TheAfricanJiant/epod/blob/main/firmware/xiao-esp32s3/lib/epod_inferencing/src/edge-impulse-sdk/CMSIS/DSP/PrivateInclude/README.md"
+        }
       ],
       "featured": false
     },
@@ -195,8 +299,12 @@
       "created": "2026-07-04T11:10:21Z",
       "image": "https://raw.githubusercontent.com/TheAfricanJiant/Practical-C-/main/docs/images/imagesB.jpeg",
       "images": [
-        "https://raw.githubusercontent.com/TheAfricanJiant/Practical-C-/main/docs/images/imagesB.jpeg"
+        "https://raw.githubusercontent.com/TheAfricanJiant/Practical-C-/main/docs/images/imagesB.jpeg",
+        "https://raw.githubusercontent.com/TheAfricanJiant/Practical-C-/main/images/braccio_arm_overview.svg",
+        "https://raw.githubusercontent.com/TheAfricanJiant/Practical-C-/main/docs/images/braccio_arm_overview.svg",
+        "https://raw.githubusercontent.com/TheAfricanJiant/Practical-C-/main/images/imagesB.jpeg"
       ],
+      "og": "https://opengraph.githubassets.com/1/TheAfricanJiant/Practical-C-",
       "readme": "[](https://theafricanjiant.github.io/Practical-C-/)\n\nThis project is being developed as a community-driven learning effort by **Tab Precious**, a core member of the **Hardware Innovation Valley Community (HWIVC)** in Buea, Cameroon.",
       "highlights": [
         "Author: Tambu Precious",
@@ -206,6 +314,7 @@
         "A solid grip on modern C++ (types, OOP, memory, the preprocessor)",
         "A custom Arduino library (MyBraccio) you wrote yourself"
       ],
+      "sections": [],
       "featured": false
     },
     {
@@ -229,6 +338,7 @@
         "https://raw.githubusercontent.com/TheAfricanJiant/MyJourneyToASLAMengineer/main/assets/3_observation_model_correction_step_broken_sensor.png",
         "https://raw.githubusercontent.com/TheAfricanJiant/MyJourneyToASLAMengineer/main/assets/4_odometry_motion_model2.png"
       ],
+      "og": "https://opengraph.githubassets.com/1/TheAfricanJiant/MyJourneyToASLAMengineer",
       "readme": "This repository documents my journey to becoming a SLAM (Simultaneous Localization and Mapping) engineer, covering fundamental concepts to practical implementations.\n\nThis project is developed with support from the Hardware Innovation Community Buea",
       "highlights": [
         "LinkedIn: Tambu Precious",
@@ -238,6 +348,7 @@
         "Start with a uniform belief in a 1D world.",
         "The world contains a set of 100 points with equal probability 1/100 for each point."
       ],
+      "sections": [],
       "featured": false
     },
     {
@@ -252,10 +363,14 @@
       "forks": 0,
       "updated": "2024-11-07T10:28:57Z",
       "created": "2024-11-07T10:20:16Z",
-      "image": null,
-      "images": [],
+      "image": "https://opengraph.githubassets.com/1/TheAfricanJiant/Black_genesis-",
+      "images": [
+        "https://opengraph.githubassets.com/1/TheAfricanJiant/Black_genesis-"
+      ],
+      "og": "https://opengraph.githubassets.com/1/TheAfricanJiant/Black_genesis-",
       "readme": null,
       "highlights": [],
+      "sections": [],
       "featured": false
     }
   ]
