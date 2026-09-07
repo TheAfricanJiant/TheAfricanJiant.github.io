@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-06T09:19:48.393Z",
+  "generated": "2026-09-07T10:09:44.886Z",
   "profile": {
     "login": "TheAfricanJiant",
     "name": "Tambu Precious",
@@ -10,6 +10,29 @@
     "url": "https://github.com/TheAfricanJiant"
   },
   "projects": [
+    {
+      "name": "ROS--2-Ten-Months-Challenge",
+      "title": "🤖 ROS 2 Ten Months Challenge",
+      "description": "Contains Robotics projects and resources from March 15 to December 15 2025",
+      "url": "https://github.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge",
+      "homepage": null,
+      "language": "C++",
+      "topics": [],
+      "stars": 1,
+      "forks": 0,
+      "updated": "2026-09-07T03:03:08Z",
+      "created": "2025-04-04T22:23:12Z",
+      "image": null,
+      "images": [],
+      "readme": "A long-term ROS 2 robotics challenge documenting my progression from ROS 2 fundamentals and micro-ROS to AI perception, stereo vision, SLAM, and autonomous robotics using the XRP platform.\n\nThis repository is a **collection of practical ROS 2 projects**. Each project lives in its own folder under `projects/` with its own README, firmware, and ROS 2 workspace, so it can be read, built, and run independently.",
+      "highlights": [
+        "ROS 2 Jazzy — installation guide",
+        "micro-ROS Agent — first application tutorial",
+        "PlatformIO (VS Code extension or CLI) for building microcontroller firmware",
+        "colcon, rosdep, and a working ~/ros2ws build setup"
+      ],
+      "featured": false
+    },
     {
       "name": "Eviatech_2025",
       "title": "🏆 Eviatech 2025 Robotics Suite",
@@ -66,33 +89,6 @@
         "USB cable to PC",
         "Vacuum cleaner under test",
         "📐 Encoders & IMU — real-time wheel odometry and inertial measurement feeding the EKF pose estimator"
-      ],
-      "featured": false
-    },
-    {
-      "name": "ROS--2-Ten-Months-Challenge",
-      "title": "ROS 2 Ten Months Challenge",
-      "description": "Contains Robotics projects and resources from March 15 to December 15 2025",
-      "url": "https://github.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge",
-      "homepage": null,
-      "language": "C++",
-      "topics": [],
-      "stars": 1,
-      "forks": 0,
-      "updated": "2026-09-01T12:41:48Z",
-      "created": "2025-04-04T22:23:12Z",
-      "image": "https://raw.githubusercontent.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge/main/image/ApplicationFrameHost_HjGZkIjTLb.png",
-      "images": [
-        "https://raw.githubusercontent.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge/main/image/ApplicationFrameHost_HjGZkIjTLb.png",
-        "https://img.youtube.com/vi/8mwOU-UvqDQ/hqdefault.jpg"
-      ],
-      "readme": "This repository contains robotics projects and resources focused on **ROS 2** throughout a **ten-month journey**.\n\nEnsure you have the following installed before proceeding: - ROS 2 (Jazzy) - **micro-ROS Agent** package (Install following this guide) - ⚠️ **Skip** \"Building the firmware\" and \"Creating the micro-ROS agent\"",
-      "highlights": [
-        "ROS 2 (Jazzy)",
-        "micro-ROS Agent package (Install following this guide)",
-        "⚠️ Skip \"Building the firmware\" and \"Creating the micro-ROS agent\"",
-        "If the ESP board doesn’t connect, restart the micro-ROS agent and verify the board firmware.",
-        "If the robot doesn’t move, check if teleoptomotor is running and echo the topic."
       ],
       "featured": false
     },
