@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-07T14:49:44.361Z",
+  "generated": "2026-09-08T09:34:22.059Z",
   "profile": {
     "login": "TheAfricanJiant",
     "name": "Tambu Precious",
@@ -16,11 +16,11 @@
       "description": "Contains Robotics projects and resources from March 15 to December 15 2025",
       "url": "https://github.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge",
       "homepage": null,
-      "language": "C++",
+      "language": "Python",
       "topics": [],
       "stars": 1,
       "forks": 0,
-      "updated": "2026-09-07T14:48:16Z",
+      "updated": "2026-09-07T19:03:07Z",
       "created": "2025-04-04T22:23:12Z",
       "image": "https://raw.githubusercontent.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge/main/assets/images/teleop_microros_demo.png",
       "images": [
@@ -38,6 +38,12 @@
         "Keyboard teleoperation driving real motors"
       ],
       "sections": [
+        {
+          "title": "📷 testcamera — Grove Vision AI V2 feed on Windows",
+          "path": "test_camera/README.md",
+          "blurb": "A small Windows tool that pulls JPEG frames off a **Grove Vision AI V2** over USB serial and displays them with OpenCV — the \"Stage 2\" fallback for when you want a normal...",
+          "url": "https://github.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge/blob/main/test_camera/README.md"
+        },
         {
           "title": "🎮 Project 01 — Teleoperation with micro-ROS",
           "path": "projects/01_teleop_microros/README.md",
