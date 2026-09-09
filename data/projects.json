@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-08T09:34:22.059Z",
+  "generated": "2026-09-09T09:37:29.959Z",
   "profile": {
     "login": "TheAfricanJiant",
     "name": "Tambu Precious",
@@ -20,12 +20,16 @@
       "topics": [],
       "stars": 1,
       "forks": 0,
-      "updated": "2026-09-07T19:03:07Z",
+      "updated": "2026-09-08T22:03:15Z",
       "created": "2025-04-04T22:23:12Z",
-      "image": "https://raw.githubusercontent.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge/main/assets/images/teleop_microros_demo.png",
+      "image": "https://raw.githubusercontent.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge/main/assets/images/combined_high_quality.jpg",
       "images": [
-        "https://raw.githubusercontent.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge/main/assets/images/teleop_microros_demo.png",
-        "https://img.youtube.com/vi/8mwOU-UvqDQ/hqdefault.jpg"
+        "https://raw.githubusercontent.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge/main/assets/images/combined_high_quality.jpg",
+        "https://raw.githubusercontent.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge/main/assets/images/senseCraft.jpg",
+        "https://raw.githubusercontent.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge/main/assets/images/night_vision_grid.png",
+        "https://raw.githubusercontent.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge/main/assets/images/stero_vision_setup.jpg",
+        "https://raw.githubusercontent.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge/main/assets/images/stereo_layout_example.png",
+        "https://raw.githubusercontent.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge/main/assets/images/IR3_6mm.jpg"
       ],
       "og": "https://opengraph.githubassets.com/1/TheAfricanJiant/ROS--2-Ten-Months-Challenge",
       "readme": "A long-term ROS 2 robotics challenge documenting my progression from ROS 2 fundamentals and micro-ROS to AI perception, stereo vision, SLAM, and autonomous robotics using the XRP platform.\n\nThis repository is a **collection of practical ROS 2 projects**. Each project lives in its own folder under `projects/` with its own README, firmware, and ROS 2 workspace, so it can be read, built, and run independently.",
@@ -39,9 +43,9 @@
       ],
       "sections": [
         {
-          "title": "📷 testcamera — Grove Vision AI V2 feed on Windows",
+          "title": "📷 testcamera — cameras, night vision and stereo depth",
           "path": "test_camera/README.md",
-          "blurb": "A small Windows tool that pulls JPEG frames off a **Grove Vision AI V2** over USB serial and displays them with OpenCV — the \"Stage 2\" fallback for when you want a normal...",
+          "blurb": "Bench tooling for Project 02, Objectives 2 and 3: prove the cameras and the Grove Vision AI V2 modules work, in daylight **and** in the dark, then measure the stereo rig and...",
           "url": "https://github.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge/blob/main/test_camera/README.md"
         },
         {
