@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-09T09:37:29.959Z",
+  "generated": "2026-09-10T09:36:27.072Z",
   "profile": {
     "login": "TheAfricanJiant",
     "name": "Tambu Precious",
@@ -20,32 +20,32 @@
       "topics": [],
       "stars": 1,
       "forks": 0,
-      "updated": "2026-09-08T22:03:15Z",
+      "updated": "2026-09-10T04:04:25Z",
       "created": "2025-04-04T22:23:12Z",
-      "image": "https://raw.githubusercontent.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge/main/assets/images/combined_high_quality.jpg",
+      "image": "https://raw.githubusercontent.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge/main/assets/images/explosion_2mb.gif",
       "images": [
+        "https://raw.githubusercontent.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge/main/assets/images/explosion_2mb.gif",
         "https://raw.githubusercontent.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge/main/assets/images/combined_high_quality.jpg",
         "https://raw.githubusercontent.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge/main/assets/images/senseCraft.jpg",
+        "https://raw.githubusercontent.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge/main/assets/images/both_with_face_detection_night_2mb.gif",
         "https://raw.githubusercontent.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge/main/assets/images/night_vision_grid.png",
-        "https://raw.githubusercontent.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge/main/assets/images/stero_vision_setup.jpg",
-        "https://raw.githubusercontent.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge/main/assets/images/stereo_layout_example.png",
-        "https://raw.githubusercontent.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge/main/assets/images/IR3_6mm.jpg"
+        "https://raw.githubusercontent.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge/main/assets/images/stero_vision_setup.jpg"
       ],
       "og": "https://opengraph.githubassets.com/1/TheAfricanJiant/ROS--2-Ten-Months-Challenge",
       "readme": "A long-term ROS 2 robotics challenge documenting my progression from ROS 2 fundamentals and micro-ROS to AI perception, stereo vision, SLAM, and autonomous robotics using the XRP platform.\n\nThis repository is a **collection of practical ROS 2 projects**. Each project lives in its own folder under `projects/` with its own README, firmware, and ROS 2 workspace, so it can be read, built, and run independently.",
       "highlights": [
+        "This is an ongoing project under the Hardware Innovation Valley Community.",
         "ROS 2 Jazzy — installation guide",
         "micro-ROS Agent — first application tutorial",
         "PlatformIO (VS Code extension or CLI) for building microcontroller firmware",
         "colcon, rosdep, and a working ~/ros2ws build setup",
-        "micro-ROS transport working over Wi-Fi (UDP)",
-        "Keyboard teleoperation driving real motors"
+        "micro-ROS transport working over Wi-Fi (UDP)"
       ],
       "sections": [
         {
           "title": "📷 testcamera — cameras, night vision and stereo depth",
           "path": "test_camera/README.md",
-          "blurb": "Bench tooling for Project 02, Objectives 2 and 3: prove the cameras and the Grove Vision AI V2 modules work, in daylight **and** in the dark, then measure the stereo rig and...",
+          "blurb": "Bench tooling for Project 02, Objectives 2 and 3. Get two Grove Vision AI V2 boards proven, measured and producing a depth reading — before any of it touches ROS 2.",
           "url": "https://github.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge/blob/main/test_camera/README.md"
         },
         {
@@ -59,6 +59,18 @@
           "path": "projects/02_stereo_ai_perception_xrp/README.md",
           "blurb": "A Raspberry Pi 5 running ROS 2 with **two night-vision cameras** for stereo depth and **two Grove AI V2 modules** for on-module object detection, driving an **XRP** robot...",
           "url": "https://github.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge/blob/main/projects/02_stereo_ai_perception_xrp/README.md"
+        },
+        {
+          "title": "XRP firmware",
+          "path": "projects/02_stereo_ai_perception_xrp/firmware/README.md",
+          "blurb": "Three PlatformIO projects. **Phase 1 is the two test projects** — prove the hardware before writing anything that depends on it. `xrp_firmware` is the phase 2 home for...",
+          "url": "https://github.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge/blob/main/projects/02_stereo_ai_perception_xrp/firmware/README.md"
+        },
+        {
+          "title": "ROS 2 workspace — tracking and perception",
+          "path": "projects/02_stereo_ai_perception_xrp/ros2_ws/README.md",
+          "blurb": "Two packages. `tracker` holds the nodes; `tracker_launch` holds the launch files that wire them together.",
+          "url": "https://github.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge/blob/main/projects/02_stereo_ai_perception_xrp/ros2_ws/README.md"
         }
       ],
       "featured": false
