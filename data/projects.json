@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-10T09:36:27.072Z",
+  "generated": "2026-09-11T09:33:43.825Z",
   "profile": {
     "login": "TheAfricanJiant",
     "name": "Tambu Precious",
@@ -20,7 +20,7 @@
       "topics": [],
       "stars": 1,
       "forks": 0,
-      "updated": "2026-09-10T04:04:25Z",
+      "updated": "2026-09-10T19:23:49Z",
       "created": "2025-04-04T22:23:12Z",
       "image": "https://raw.githubusercontent.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge/main/assets/images/explosion_2mb.gif",
       "images": [
@@ -61,9 +61,9 @@
           "url": "https://github.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge/blob/main/projects/02_stereo_ai_perception_xrp/README.md"
         },
         {
-          "title": "XRP firmware",
+          "title": "🔌 XRP firmware",
           "path": "projects/02_stereo_ai_perception_xrp/firmware/README.md",
-          "blurb": "Three PlatformIO projects. **Phase 1 is the two test projects** — prove the hardware before writing anything that depends on it. `xrp_firmware` is the phase 2 home for...",
+          "blurb": "Four PlatformIO projects. The three test projects came first and **all pass on the robot**; the real firmware is built directly out of them.",
           "url": "https://github.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge/blob/main/projects/02_stereo_ai_perception_xrp/firmware/README.md"
         },
         {
