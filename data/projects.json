@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-21T10:37:21.880Z",
+  "generated": "2026-09-21T20:10:30.545Z",
   "profile": {
     "login": "TheAfricanJiant",
     "name": "Tambu Precious",
@@ -10,6 +10,95 @@
     "url": "https://github.com/TheAfricanJiant"
   },
   "projects": [
+    {
+      "name": "unoq-braccio",
+      "title": "Arduino UNOQ Braccio",
+      "description": "Braccio Robotic Arm for pick and Place ",
+      "url": "https://github.com/TheAfricanJiant/unoq-braccio",
+      "homepage": null,
+      "language": "Python",
+      "topics": [],
+      "stars": 0,
+      "forks": 0,
+      "updated": "2026-09-21T19:44:34Z",
+      "created": "2026-09-21T19:30:34Z",
+      "image": "https://raw.githubusercontent.com/TheAfricanJiant/unoq-braccio/main/docs/IMG-20260615-WA0006.jpg",
+      "images": [
+        "https://raw.githubusercontent.com/TheAfricanJiant/unoq-braccio/main/docs/IMG-20260615-WA0006.jpg",
+        "https://github.com/user-attachments/assets/7736b383-4374-40f8-bcf9-347998eaff60",
+        "https://github.com/user-attachments/assets/db8d983e-142a-4fbe-8bbe-c46fc83fc3e3",
+        "https://github.com/user-attachments/assets/106f27c6-1770-4013-a920-a8994daa6cda",
+        "https://raw.githubusercontent.com/TheAfricanJiant/unoq-braccio/main/docs/Screenshot_20260615-184539_WhatsApp.png",
+        "https://raw.githubusercontent.com/TheAfricanJiant/unoq-braccio/main/docs/IMG_20260615_180657884_HDR~2.jpg"
+      ],
+      "og": "https://opengraph.githubassets.com/1/TheAfricanJiant/unoq-braccio",
+      "readme": "Control a TinkerKit Braccio arm with an Arduino UNO Q, ROS 2, Edge Impulse, and Gazebo.\n\nROS 2 host -> tcp_bridge -> UNO Q agent -> servos",
+      "highlights": [
+        "Arduino firmware using the official",
+        "ROS 2 USB serial and remote TCP bridges that convert",
+        "A ROS 2 teleop node for keyboard-free testing.",
+        "A Gazebo/ros2control simulation package for developing without hardware.",
+        "Edge Impulse integration scaffolding for gesture or classifier-driven arm",
+        "Edge Impulse CSV data capture for commanded servo motion and robot status."
+      ],
+      "sections": [
+        {
+          "title": "Edge Impulse Integration",
+          "path": "edge_impulse/README.md",
+          "blurb": "Use Edge Impulse to turn classifier labels into Braccio poses.",
+          "url": "https://github.com/TheAfricanJiant/unoq-braccio/blob/main/edge_impulse/README.md"
+        },
+        {
+          "title": "Braccio Web Control",
+          "path": "web_app/README.md",
+          "blurb": "Browser dashboard for controlling the UNO Q Braccio over the network.",
+          "url": "https://github.com/TheAfricanJiant/unoq-braccio/blob/main/web_app/README.md"
+        },
+        {
+          "title": "Braccio Remote Agent for Arduino App Lab",
+          "path": "app_lab/braccio_remote_agent/README.md",
+          "blurb": "Run this app on the UNO Q when you want ROS 2 on another computer to control the Braccio over the network instead of over USB serial.",
+          "url": "https://github.com/TheAfricanJiant/unoq-braccio/blob/main/app_lab/braccio_remote_agent/README.md"
+        },
+        {
+          "title": "Braccio Smoke Test for Arduino App Lab",
+          "path": "app_lab/braccio_smoke_test/README.md",
+          "blurb": "This is a minimal Arduino App Lab project for validating that the Braccio shield is seated on the UNO Q and that the MCU can drive the servos.",
+          "url": "https://github.com/TheAfricanJiant/unoq-braccio/blob/main/app_lab/braccio_smoke_test/README.md"
+        },
+        {
+          "title": "Braccio Web Agent",
+          "path": "app_lab/braccio_web_agent/README.md",
+          "blurb": "Run this single App Lab app on the UNO Q for the web dashboard.",
+          "url": "https://github.com/TheAfricanJiant/unoq-braccio/blob/main/app_lab/braccio_web_agent/README.md"
+        },
+        {
+          "title": "UNO Q USB Camera Streamer",
+          "path": "app_lab/usb_camera_streamer/README.md",
+          "blurb": "Run this App Lab app on the UNO Q when a USB camera is plugged into the UNO Q and ROS 2 is running on another computer.",
+          "url": "https://github.com/TheAfricanJiant/unoq-braccio/blob/main/app_lab/usb_camera_streamer/README.md"
+        },
+        {
+          "title": "UNOQ Braccio Bridge Brick",
+          "path": "app_lab/bricks/unoq_braccio_bridge/README.md",
+          "blurb": "Reusable App Lab brick for controlling a TinkerKit Braccio shield from an Arduino UNO Q.",
+          "url": "https://github.com/TheAfricanJiant/unoq-braccio/blob/main/app_lab/bricks/unoq_braccio_bridge/README.md"
+        },
+        {
+          "title": "UNO Q Braccio Gazebo Simulation",
+          "path": "ros2_ws/src/unoq_braccio_sim/README.md",
+          "blurb": "This package provides a lightweight Gazebo Harmonic simulation for the UNO Q Braccio project.",
+          "url": "https://github.com/TheAfricanJiant/unoq-braccio/blob/main/ros2_ws/src/unoq_braccio_sim/README.md"
+        }
+      ],
+      "featured": false,
+      "fork": true,
+      "parent": {
+        "name": "eoinjordan/unoq-braccio",
+        "url": "https://github.com/eoinjordan/unoq-braccio"
+      },
+      "ahead": 1
+    },
     {
       "name": "ROS--2-Ten-Months-Challenge",
       "title": "🤖 ROS 2 Ten Months Challenge",
@@ -73,7 +162,8 @@
           "url": "https://github.com/TheAfricanJiant/ROS--2-Ten-Months-Challenge/blob/main/projects/02_stereo_ai_perception_xrp/ros2_ws/README.md"
         }
       ],
-      "featured": false
+      "featured": false,
+      "fork": false
     },
     {
       "name": "Eviatech_2025",
@@ -102,7 +192,8 @@
         "Motor Control: Dual-channel PWM differential drive with soft acceleration and sudden-stop counter-thrust routines (motors.h)."
       ],
       "sections": [],
-      "featured": false
+      "featured": false,
+      "fork": false
     },
     {
       "name": "ArIa-Roomba",
@@ -161,7 +252,8 @@
           "url": "https://github.com/TheAfricanJiant/ArIa-Roomba/blob/main/UnoQXRPmotor-step-one/README.md"
         }
       ],
-      "featured": false
+      "featured": false,
+      "fork": false
     },
     {
       "name": "Pick_and_Place",
@@ -195,7 +287,8 @@
         "3D Modeling & Printing Guide: 3D Modelling & Printing Step-by-Step"
       ],
       "sections": [],
-      "featured": false
+      "featured": false,
+      "fork": false
     },
     {
       "name": "Project_NYX_",
@@ -224,7 +317,8 @@
         "Distance Estimation: Calculates physical attacker proximity using Received Signal Strength Indicator (RSSI)."
       ],
       "sections": [],
-      "featured": false
+      "featured": false,
+      "fork": false
     },
     {
       "name": "epod",
@@ -305,7 +399,8 @@
           "url": "https://github.com/TheAfricanJiant/epod/blob/main/firmware/xiao-esp32s3/lib/epod_inferencing/src/edge-impulse-sdk/CMSIS/DSP/PrivateInclude/README.md"
         }
       ],
-      "featured": false
+      "featured": false,
+      "fork": false
     },
     {
       "name": "Practical-C-",
@@ -337,7 +432,8 @@
         "A custom Arduino library (MyBraccio) you wrote yourself"
       ],
       "sections": [],
-      "featured": false
+      "featured": false,
+      "fork": false
     },
     {
       "name": "MyJourneyToASLAMengineer",
@@ -371,7 +467,8 @@
         "The world contains a set of 100 points with equal probability 1/100 for each point."
       ],
       "sections": [],
-      "featured": false
+      "featured": false,
+      "fork": false
     },
     {
       "name": "Black_genesis-",
@@ -393,7 +490,8 @@
       "readme": null,
       "highlights": [],
       "sections": [],
-      "featured": false
+      "featured": false,
+      "fork": false
     }
   ]
 }
