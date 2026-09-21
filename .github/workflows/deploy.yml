@@ -15,15 +15,21 @@ permissions:
   pages: write
   id-token: write
 
+# Queue runs one after another instead of cancelling the one in flight.
+# Cancelling let an older run deploy last and overwrite fresher data.
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # Always build from the newest main, not the commit that queued the
+      # run - so a delayed or re-run job can never ship out-of-date code.
       - uses: actions/checkout@v4
+        with:
+          ref: main
 
       - uses: actions/setup-node@v4
         with:
