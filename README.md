@@ -77,6 +77,11 @@ Two special topics:
 - **`featured`** — pins the project to the top and makes its card double-width.
 - **`hidden`** — keeps the repo off the website entirely.
 
+**Forks** show up automatically once you've pushed at least one commit to them —
+a fork you only clicked "Fork" on stays off the site. Fork cards get a *Fork* badge,
+link back to the original repo, and show how many commits you've added on top.
+To hide a fork you *have* pushed to, give it the `hidden` topic.
+
 If you have the [`gh` CLI](https://cli.github.com/), you can do all of it from
 the terminal instead of clicking:
 

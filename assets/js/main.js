@@ -251,8 +251,16 @@ $('#copymail').addEventListener('click', async function () {
    --------------------------------------------------------------- */
 const PRETTY = {
   ros2: 'ROS 2', ros: 'ROS', slam: 'SLAM', cpp: 'C++', ai: 'AI', iot: 'IoT',
-  imu: 'IMU', esp32: 'ESP32', ml: 'ML', csi: 'CSI', tinyml: 'TinyML', pcb: 'PCB'
+  imu: 'IMU', esp32: 'ESP32', ml: 'ML', csi: 'CSI', tinyml: 'TinyML', pcb: 'PCB',
+  fork: 'Forks'
 };
+
+/* everything a project can be filtered by: topics, language, and "fork" */
+const tokensOf = p => [...(p.topics || []), p.language, p.fork ? 'fork' : null]
+  .filter(Boolean).map(t => t.toLowerCase());
+
+/* two branches (top) merging down into one trunk (bottom) */
+const FORK_ICO = `<svg class="ico-fork" viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="4" cy="3" r="1.6"/><circle cx="12" cy="3" r="1.6"/><circle cx="8" cy="13" r="1.6"/><path d="M4 4.6V6a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2V4.6M8 8v3.4"/></svg>`;
 
 const titleize = n => n.replace(/[-_]+/g, ' ').replace(/\s+/g, ' ').trim()
   .replace(/\b\w/g, c => c.toUpperCase());
@@ -333,7 +341,8 @@ function cardHTML(p, featured) {
   <article class="card${featured ? ' card--feature' : ''} reveal" data-name="${esc(p.name)}"
            role="button" tabindex="0" aria-label="Open dossier for ${esc(p.title || p.name)}">
     <div class="card__media">
-      ${p.featured ? '<span class="pin">Featured</span>' : ''}
+      ${p.featured ? '<span class="pin">Featured</span>'
+        : p.fork ? `<span class="pin pin--fork">${FORK_ICO} Fork</span>` : ''}
       ${cover}
     </div>
     <div class="card__body">
@@ -347,6 +356,7 @@ function cardHTML(p, featured) {
         ${p.language ? `<span class="lang"><i class="dot"></i>${esc(p.language)}</span>` : ''}
         ${p.stars ? `<span>&#9733; ${p.stars}</span>` : ''}
         ${p.sections?.length ? `<span>${p.sections.length} sub-project${p.sections.length > 1 ? 's' : ''}</span>` : ''}
+        ${p.fork && p.ahead ? `<span class="forkmeta">${FORK_ICO} ${p.ahead} commit${p.ahead === 1 ? '' : 's'} ahead</span>` : ''}
         <span>updated ${esc(ago(p.updated))}</span>
       </div>
     </div>
@@ -372,6 +382,9 @@ function openDrawer(name) {
     ${hero ? `<figure class="d-hero">${imgHTML(chain, { lazy: false, initial })}</figure>` : ''}
     <p class="d-kicker">${esc(p.language || 'Project')} · updated ${esc(ago(p.updated))}</p>
     <h2 class="d-title" id="d-title">${esc(p.title || titleize(p.name))}</h2>
+    ${p.fork ? `<p class="d-fork">${FORK_ICO} Forked from
+      ${p.parent ? `<a href="${esc(p.parent.url)}" target="_blank" rel="noopener">${esc(p.parent.name)}</a>` : 'another repository'}${
+      p.ahead ? ` — <b>${p.ahead} commit${p.ahead === 1 ? '' : 's'}</b> of my own on top` : ''}</p>` : ''}
     <p class="d-desc">${esc(p.description || 'No description on the repository yet.')}</p>
     ${tags.length ? `<div class="d-tags">${tags.map(t => `<span class="tag">${esc(prettyTag(t))}</span>`).join('')}</div>` : ''}
 
@@ -428,13 +441,10 @@ drawer.addEventListener('click', e => { if (e.target.closest('[data-close]')) cl
 function visible() {
   const q = state.q.toLowerCase().trim();
   let list = ALL.filter(p => {
-    if (state.tag) {
-      const tokens = [...(p.topics || []), p.language || ''].map(t => t.toLowerCase());
-      if (!tokens.includes(state.tag)) return false;
-    }
+    if (state.tag && !tokensOf(p).includes(state.tag)) return false;
     if (!q) return true;
-    return [p.name, p.title, p.description, p.language,
-            ...(p.topics || []), ...(p.sections || []).map(s => s.title)]
+    return [p.name, p.title, p.description, p.parent?.name,
+            ...tokensOf(p), ...(p.sections || []).map(s => s.title)]
       .filter(Boolean).join(' ').toLowerCase().includes(q);
   });
 
@@ -466,9 +476,8 @@ function buildFilters() {
   const box = $('#filters');
   const counts = new Map();
   for (const p of ALL)
-    for (const t of [...(p.topics || []), p.language].filter(Boolean)) {
-      if (t === 'featured') continue;
-      const k = t.toLowerCase();
+    for (const k of tokensOf(p)) {
+      if (k === 'featured') continue;
       counts.set(k, (counts.get(k) || 0) + 1);
     }
 
@@ -570,8 +579,12 @@ async function liveFallback() {
   return {
     generated: new Date().toISOString(),
     profile: { avatar: `https://github.com/${USER}.png?size=560`, location: 'Buea, Cameroon' },
-    projects: repos.filter(x => !x.fork && !x.archived && !/\.github\.io$/.test(x.name))
+    projects: repos
+      .filter(x => !x.archived && !/\.github\.io$/.test(x.name))
+      // same rule as the sync script: keep forks you have actually pushed to
+      .filter(x => !x.fork || new Date(x.pushed_at) > new Date(x.created_at))
       .map(x => ({
+        fork: x.fork,
         name: x.name, title: titleize(x.name), description: x.description,
         url: x.html_url, homepage: x.homepage, language: x.language,
         topics: x.topics || [], stars: x.stargazers_count, forks: x.forks_count,

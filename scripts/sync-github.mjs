@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /* ===============================================================
    sync-github.mjs
-   Reads every public repo on the account and writes
-   data/projects.json for the site to render.
+   Reads every public repo on the account (including forks you have
+   pushed to) and writes data/projects.json for the site to render.
 
    Cover images are found in four passes, so a repo yields a
    thumbnail no matter how it is laid out:
@@ -294,6 +294,30 @@ async function verify(candidates, limit) {
   return kept;
 }
 
+/* --- forks --------------------------------------------------- */
+
+/** where a fork came from, and how many of your commits it carries */
+async function forkInfo(r) {
+  try {
+    const full = await api(`/repos/${USER}/${r.name}`);
+    const up = full?.parent;
+    if (!up) return { parent: null, ahead: null };
+
+    let ahead = null;
+    try {
+      const cmp = await api(
+        `/repos/${up.full_name}/compare/${up.default_branch}...${USER}:${r.default_branch}`);
+      ahead = cmp?.ahead_by ?? null;
+    } catch (e) {
+      console.warn(`  ! compare ${r.name}: ${e.message.slice(0, 80)}`);
+    }
+    return { parent: { name: up.full_name, url: up.html_url }, ahead };
+  } catch (e) {
+    console.warn(`  ! fork info ${r.name}: ${e.message.slice(0, 80)}`);
+    return { parent: null, ahead: null };
+  }
+}
+
 /* --- main ---------------------------------------------------- */
 
 const repos = await api(`/users/${USER}/repos?per_page=100&sort=updated`);
@@ -302,9 +326,22 @@ if (!repos) throw new Error(`user ${USER} not found`);
 const projects = [];
 
 for (const r of repos) {
-  if (r.fork || r.archived || r.private) continue;
+  if (r.archived || r.private) continue;
   if (SKIP.has(r.name)) continue;
   if ((r.topics || []).includes('hidden')) continue;
+
+  /* Forks: a fresh fork inherits the upstream's pushed_at, which is
+     older than the fork's own created_at. Only once you push to it
+     does pushed_at move past created_at - so that separates forks
+     you have worked on from ones you only clicked "Fork" on. */
+  let fork = null;
+  if (r.fork) {
+    if (new Date(r.pushed_at) <= new Date(r.created_at)) {
+      console.log(`  - ${r.name.padEnd(30)} fork, never pushed to - skipped`);
+      continue;
+    }
+    fork = await forkInfo(r);
+  }
 
   const branch = r.default_branch || 'main';
 
@@ -389,13 +426,16 @@ for (const r of repos) {
     readme: readmeBlurb(md, 620, 2),
     highlights: highlights(md),
     sections: sections.slice(0, 8),
-    featured: (r.topics || []).includes('featured')
+    featured: (r.topics || []).includes('featured'),
+    fork: !!fork,
+    ...(fork ? { parent: fork.parent, ahead: fork.ahead } : {})
   };
 
   projects.push(project);
   console.log(
     `  + ${project.name.padEnd(30)} ${String(images.length).padStart(2)} img` +
-    `${usedOg ? ' (og)' : '    '}  ${String(sections.length).padStart(2)} sect  ${project.language || ''}`
+    `${usedOg ? ' (og)' : '    '}  ${String(sections.length).padStart(2)} sect  ${project.language || ''}` +
+    (fork ? `  fork of ${fork.parent?.name ?? '?'}${fork.ahead != null ? `, ${fork.ahead} ahead` : ''}` : '')
   );
 }
 

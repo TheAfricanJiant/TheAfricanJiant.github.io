@@ -450,6 +450,21 @@ button{ font:inherit; color:inherit; }
   font-family:var(--mono); font-size:.6rem; letter-spacing:.12em; text-transform:uppercase;
   background:var(--accent); color:var(--bg); padding:.22rem .5rem; border-radius:5px;
 }
+/* forks: outlined rather than filled, so "Featured" still reads loudest */
+.pin--fork{
+  display:inline-flex; align-items:center; gap:.3rem;
+  background:var(--bg); color:var(--accent); border:1px solid var(--accent-dim);
+}
+.ico-fork{ flex:none; vertical-align:-1px; }
+.forkmeta{ display:inline-flex; align-items:center; gap:.3rem; color:var(--accent); }
+
+.d-fork{
+  display:flex; align-items:center; flex-wrap:wrap; gap:.4rem;
+  font-family:var(--mono); font-size:.74rem; color:var(--muted);
+  margin:-.3rem 0 1rem;
+}
+.d-fork a{ color:var(--accent); }
+.d-fork b{ color:var(--text); font-weight:500; }
 
 .card__ph{
   position:absolute; inset:0; display:grid; place-items:center;
