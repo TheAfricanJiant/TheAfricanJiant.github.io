@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-24T09:55:05.124Z",
+  "generated": "2026-09-24T12:27:49.010Z",
   "profile": {
     "login": "TheAfricanJiant",
     "name": "Tambu Precious",
@@ -20,26 +20,26 @@
       "topics": [],
       "stars": 0,
       "forks": 0,
-      "updated": "2026-09-21T19:44:34Z",
+      "updated": "2026-09-24T11:36:21Z",
       "created": "2026-09-21T19:30:34Z",
-      "image": "https://raw.githubusercontent.com/TheAfricanJiant/unoq-braccio/main/docs/IMG-20260615-WA0006.jpg",
+      "image": "https://raw.githubusercontent.com/TheAfricanJiant/unoq-braccio/main/docs/braccio.gif",
       "images": [
-        "https://raw.githubusercontent.com/TheAfricanJiant/unoq-braccio/main/docs/IMG-20260615-WA0006.jpg",
+        "https://raw.githubusercontent.com/TheAfricanJiant/unoq-braccio/main/docs/braccio.gif",
         "https://github.com/user-attachments/assets/7736b383-4374-40f8-bcf9-347998eaff60",
         "https://github.com/user-attachments/assets/db8d983e-142a-4fbe-8bbe-c46fc83fc3e3",
         "https://github.com/user-attachments/assets/106f27c6-1770-4013-a920-a8994daa6cda",
         "https://raw.githubusercontent.com/TheAfricanJiant/unoq-braccio/main/docs/Screenshot_20260615-184539_WhatsApp.png",
-        "https://raw.githubusercontent.com/TheAfricanJiant/unoq-braccio/main/docs/IMG_20260615_180657884_HDR~2.jpg"
+        "https://raw.githubusercontent.com/TheAfricanJiant/unoq-braccio/main/docs/IMG-20260615-WA0006.jpg"
       ],
       "og": "https://opengraph.githubassets.com/1/TheAfricanJiant/unoq-braccio",
-      "readme": "Control a TinkerKit Braccio arm with an Arduino UNO Q, ROS 2, Edge Impulse, and Gazebo.\n\nROS 2 host -> tcp_bridge -> UNO Q agent -> servos",
+      "readme": "Control a TinkerKit Braccio arm with an Arduino UNO Q, ROS 2, Edge Impulse, and Gazebo.\n\nArchitecture details: docs/architecture.md.",
       "highlights": [
         "Arduino firmware using the official",
         "ROS 2 USB serial and remote TCP bridges that convert",
-        "A ROS 2 teleop node for keyboard-free testing.",
-        "A Gazebo/ros2control simulation package for developing without hardware.",
-        "Edge Impulse integration scaffolding for gesture or classifier-driven arm",
-        "Edge Impulse CSV data capture for commanded servo motion and robot status."
+        "A Gazebo/ros2control simulation with a gripper camera, an overhead camera,",
+        "Edge Impulse integration for camera object detection and classifier-driven",
+        "USB camera vision with OpenCV color tracking.",
+        "A browser dashboard and App Lab apps for remote control."
       ],
       "sections": [
         {
@@ -97,7 +97,7 @@
         "name": "eoinjordan/unoq-braccio",
         "url": "https://github.com/eoinjordan/unoq-braccio"
       },
-      "ahead": 1
+      "ahead": 7
     },
     {
       "name": "ROS--2-Ten-Months-Challenge",
