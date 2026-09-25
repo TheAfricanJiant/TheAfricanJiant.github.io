@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-24T12:27:49.010Z",
+  "generated": "2026-09-25T10:08:44.361Z",
   "profile": {
     "login": "TheAfricanJiant",
     "name": "Tambu Precious",
@@ -11,6 +11,33 @@
   },
   "projects": [
     {
+      "name": "simpleXRP",
+      "title": "simpleXRP",
+      "description": "Pico W pinout reference: `docs/images/picow-pinout.svg`",
+      "url": "https://github.com/TheAfricanJiant/simpleXRP",
+      "homepage": null,
+      "language": "HTML",
+      "topics": [],
+      "stars": 0,
+      "forks": 0,
+      "updated": "2026-09-25T06:17:43Z",
+      "created": "2026-09-25T04:58:21Z",
+      "image": "https://raw.githubusercontent.com/TheAfricanJiant/simpleXRP/main/docs/images/web_phone.png",
+      "images": [
+        "https://raw.githubusercontent.com/TheAfricanJiant/simpleXRP/main/docs/images/web_phone.png",
+        "https://raw.githubusercontent.com/TheAfricanJiant/simpleXRP/main/docs/images/xrp_with_c3.jpg",
+        "https://raw.githubusercontent.com/TheAfricanJiant/simpleXRP/main/docs/images/xiao_esp32c3.jpeg",
+        "https://raw.githubusercontent.com/TheAfricanJiant/simpleXRP/main/docs/images/web_desktop.png",
+        "https://raw.githubusercontent.com/TheAfricanJiant/simpleXRP/main/docs/images/picow-pinout.svg"
+      ],
+      "og": "https://opengraph.githubassets.com/1/TheAfricanJiant/simpleXRP",
+      "readme": "Pico W pinout reference: `docs/images/picow-pinout.svg`\n\nBoth boards are PlatformIO projects. Because micro-ROS is gone, the Pico build works with native Windows PlatformIO too, and WSL isn't needed.",
+      "highlights": [],
+      "sections": [],
+      "featured": false,
+      "fork": false
+    },
+    {
       "name": "unoq-braccio",
       "title": "Arduino UNOQ Braccio",
       "description": "Braccio Robotic Arm for pick and Place ",
@@ -20,7 +47,7 @@
       "topics": [],
       "stars": 0,
       "forks": 0,
-      "updated": "2026-09-24T11:36:21Z",
+      "updated": "2026-09-24T16:23:40Z",
       "created": "2026-09-21T19:30:34Z",
       "image": "https://raw.githubusercontent.com/TheAfricanJiant/unoq-braccio/main/docs/braccio.gif",
       "images": [
@@ -47,6 +74,12 @@
           "path": "edge_impulse/README.md",
           "blurb": "Use Edge Impulse to turn classifier labels into Braccio poses.",
           "url": "https://github.com/TheAfricanJiant/unoq-braccio/blob/main/edge_impulse/README.md"
+        },
+        {
+          "title": "Cube detector test (Edge Impulse TFLite)",
+          "path": "test/README.md",
+          "blurb": "Runs the Edge Impulse cube model on still images or a live webcam and shows the detections on screen. It is a stand-alone check of the model; it does not use ROS.",
+          "url": "https://github.com/TheAfricanJiant/unoq-braccio/blob/main/test/README.md"
         },
         {
           "title": "Braccio Web Control",
@@ -83,12 +116,6 @@
           "path": "app_lab/bricks/unoq_braccio_bridge/README.md",
           "blurb": "Reusable App Lab brick for controlling a TinkerKit Braccio shield from an Arduino UNO Q.",
           "url": "https://github.com/TheAfricanJiant/unoq-braccio/blob/main/app_lab/bricks/unoq_braccio_bridge/README.md"
-        },
-        {
-          "title": "UNO Q Braccio Gazebo Simulation",
-          "path": "ros2_ws/src/unoq_braccio_sim/README.md",
-          "blurb": "This package provides a lightweight Gazebo Harmonic simulation for the UNO Q Braccio project.",
-          "url": "https://github.com/TheAfricanJiant/unoq-braccio/blob/main/ros2_ws/src/unoq_braccio_sim/README.md"
         }
       ],
       "featured": false,
@@ -97,7 +124,7 @@
         "name": "eoinjordan/unoq-braccio",
         "url": "https://github.com/eoinjordan/unoq-braccio"
       },
-      "ahead": 7
+      "ahead": 10
     },
     {
       "name": "ROS--2-Ten-Months-Challenge",
