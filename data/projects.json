@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-26T09:49:26.381Z",
+  "generated": "2026-09-26T20:55:21.265Z",
   "profile": {
     "login": "TheAfricanJiant",
     "name": "Tambu Precious",
@@ -10,6 +10,47 @@
     "url": "https://github.com/TheAfricanJiant"
   },
   "projects": [
+    {
+      "name": "Practical-C-",
+      "title": "Practical C++ with the Braccio Arm",
+      "description": "Learn from basic to expert mode, practical concepts in cpp.  Also you get to build your own library and control the raccio Otic arm in Arduino IDE",
+      "url": "https://github.com/TheAfricanJiant/Practical-C-",
+      "homepage": null,
+      "language": "C++",
+      "topics": [],
+      "stars": 0,
+      "forks": 0,
+      "updated": "2026-09-26T20:40:24Z",
+      "created": "2026-07-04T11:10:21Z",
+      "image": "https://github.com/TheAfricanJiant/Practical-C-/actions/workflows/gh-pages.yml/badge.svg",
+      "images": [
+        "https://github.com/TheAfricanJiant/Practical-C-/actions/workflows/gh-pages.yml/badge.svg",
+        "https://github.com/TheAfricanJiant/Practical-C-/actions/workflows/test-code.yml/badge.svg",
+        "https://raw.githubusercontent.com/TheAfricanJiant/Practical-C-/main/docs/images/logo.svg",
+        "https://raw.githubusercontent.com/TheAfricanJiant/Practical-C-/main/docs/images/braccio_anatomy.svg",
+        "https://raw.githubusercontent.com/TheAfricanJiant/Practical-C-/main/images/braccio_arm_overview.svg",
+        "https://raw.githubusercontent.com/TheAfricanJiant/Practical-C-/main/docs/images/header_source.svg"
+      ],
+      "og": "https://opengraph.githubassets.com/1/TheAfricanJiant/Practical-C-",
+      "readme": "[](https://theafricanjiant.github.io/Practical-C-/) [](https://github.com/TheAfricanJiant/Practical-C-/actions/workflows/gh-pages.yml) [](https://github.com/TheAfricanJiant/Practical-C-/actions/workflows/test-code.yml) [](LICENSE)\n\nA free, hands-on course that teaches **C++** by programming the **Tinkerkit Braccio** robotic arm with an Arduino UNO. It starts at \"what is a compiler?\" and ends with you writing, testing and shipping your **own Arduino library** and solving **inverse kinematics** so the gripper reaches any point you type.",
+      "highlights": [
+        "20 lessons + a hands-on Lesson 00, each with a concept explanation, diagrams, desktop C++ you can run anywhere,",
+        "5 projects: a PC simulator, pick & place (state machine), a serial command console, teach & replay with EEPROM,",
+        "15 illustrated diagrams of the arm, wiring, servo signals, memory, motion and kinematics.",
+        "No arm? No problem. Every lab runs in the free Wokwi simulator using our",
+        "Every code sample is tested: it compiles, runs, and never commands an unsafe angle."
+      ],
+      "sections": [
+        {
+          "title": "ArmPoses",
+          "path": "examples/libraries/ArmPoses/README.md",
+          "blurb": "Named poses and smooth pose playback for the Tinkerkit Braccio arm. Written in Lesson 17 of *Practical C++ with the Braccio Arm*.",
+          "url": "https://github.com/TheAfricanJiant/Practical-C-/blob/main/examples/libraries/ArmPoses/README.md"
+        }
+      ],
+      "featured": false,
+      "fork": false
+    },
     {
       "name": "simpleXRP",
       "title": "simpleXRP",
@@ -426,39 +467,6 @@
           "url": "https://github.com/TheAfricanJiant/epod/blob/main/firmware/xiao-esp32s3/lib/epod_inferencing/src/edge-impulse-sdk/CMSIS/DSP/PrivateInclude/README.md"
         }
       ],
-      "featured": false,
-      "fork": false
-    },
-    {
-      "name": "Practical-C-",
-      "title": "🤖 Practical C++ — BraccioV2 Masterclass",
-      "description": "Learn from basic to expert mode, practical concepts in cpp.  Also you get to build your own library and control the raccio Otic arm in Arduino IDE",
-      "url": "https://github.com/TheAfricanJiant/Practical-C-",
-      "homepage": null,
-      "language": "C++",
-      "topics": [],
-      "stars": 0,
-      "forks": 0,
-      "updated": "2026-07-04T12:04:25Z",
-      "created": "2026-07-04T11:10:21Z",
-      "image": "https://raw.githubusercontent.com/TheAfricanJiant/Practical-C-/main/docs/images/imagesB.jpeg",
-      "images": [
-        "https://raw.githubusercontent.com/TheAfricanJiant/Practical-C-/main/docs/images/imagesB.jpeg",
-        "https://raw.githubusercontent.com/TheAfricanJiant/Practical-C-/main/images/braccio_arm_overview.svg",
-        "https://raw.githubusercontent.com/TheAfricanJiant/Practical-C-/main/docs/images/braccio_arm_overview.svg",
-        "https://raw.githubusercontent.com/TheAfricanJiant/Practical-C-/main/images/imagesB.jpeg"
-      ],
-      "og": "https://opengraph.githubassets.com/1/TheAfricanJiant/Practical-C-",
-      "readme": "[](https://theafricanjiant.github.io/Practical-C-/)\n\nThis project is being developed as a community-driven learning effort by **Tab Precious**, a core member of the **Hardware Innovation Valley Community (HWIVC)** in Buea, Cameroon.",
-      "highlights": [
-        "Author: Tambu Precious",
-        "LinkedIn: Tambu Precious",
-        "Community: Hardware Innovation Valley Community (HWIVC)",
-        "Community role: Core team member contributing to hands-on robotics and embedded systems learning in Buea",
-        "A solid grip on modern C++ (types, OOP, memory, the preprocessor)",
-        "A custom Arduino library (MyBraccio) you wrote yourself"
-      ],
-      "sections": [],
       "featured": false,
       "fork": false
     },
