@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-29T11:18:00.988Z",
+  "generated": "2026-09-30T11:05:57.247Z",
   "profile": {
     "login": "TheAfricanJiant",
     "name": "Tambu Precious",
@@ -36,95 +36,6 @@
       "sections": [],
       "featured": false,
       "fork": false
-    },
-    {
-      "name": "unoq-braccio",
-      "title": "Arduino UNOQ Braccio",
-      "description": "Braccio Robotic Arm for pick and Place ",
-      "url": "https://github.com/TheAfricanJiant/unoq-braccio",
-      "homepage": null,
-      "language": "Python",
-      "topics": [],
-      "stars": 0,
-      "forks": 0,
-      "updated": "2026-09-24T16:23:40Z",
-      "created": "2026-09-21T19:30:34Z",
-      "image": "https://raw.githubusercontent.com/TheAfricanJiant/unoq-braccio/main/docs/braccio.gif",
-      "images": [
-        "https://raw.githubusercontent.com/TheAfricanJiant/unoq-braccio/main/docs/braccio.gif",
-        "https://github.com/user-attachments/assets/7736b383-4374-40f8-bcf9-347998eaff60",
-        "https://github.com/user-attachments/assets/db8d983e-142a-4fbe-8bbe-c46fc83fc3e3",
-        "https://github.com/user-attachments/assets/106f27c6-1770-4013-a920-a8994daa6cda",
-        "https://raw.githubusercontent.com/TheAfricanJiant/unoq-braccio/main/docs/Screenshot_20260615-184539_WhatsApp.png",
-        "https://raw.githubusercontent.com/TheAfricanJiant/unoq-braccio/main/docs/IMG-20260615-WA0006.jpg"
-      ],
-      "og": "https://opengraph.githubassets.com/1/TheAfricanJiant/unoq-braccio",
-      "readme": "Control a TinkerKit Braccio arm with an Arduino UNO Q, ROS 2, Edge Impulse, and Gazebo.\n\nArchitecture details: docs/architecture.md.",
-      "highlights": [
-        "Arduino firmware using the official",
-        "ROS 2 USB serial and remote TCP bridges that convert",
-        "A Gazebo/ros2control simulation with a gripper camera, an overhead camera,",
-        "Edge Impulse integration for camera object detection and classifier-driven",
-        "USB camera vision with OpenCV color tracking.",
-        "A browser dashboard and App Lab apps for remote control."
-      ],
-      "sections": [
-        {
-          "title": "Edge Impulse Integration",
-          "path": "edge_impulse/README.md",
-          "blurb": "Use Edge Impulse to turn classifier labels into Braccio poses.",
-          "url": "https://github.com/TheAfricanJiant/unoq-braccio/blob/main/edge_impulse/README.md"
-        },
-        {
-          "title": "Cube detector test (Edge Impulse TFLite)",
-          "path": "test/README.md",
-          "blurb": "Runs the Edge Impulse cube model on still images or a live webcam and shows the detections on screen. It is a stand-alone check of the model; it does not use ROS.",
-          "url": "https://github.com/TheAfricanJiant/unoq-braccio/blob/main/test/README.md"
-        },
-        {
-          "title": "Braccio Web Control",
-          "path": "web_app/README.md",
-          "blurb": "Browser dashboard for controlling the UNO Q Braccio over the network.",
-          "url": "https://github.com/TheAfricanJiant/unoq-braccio/blob/main/web_app/README.md"
-        },
-        {
-          "title": "Braccio Remote Agent for Arduino App Lab",
-          "path": "app_lab/braccio_remote_agent/README.md",
-          "blurb": "Run this app on the UNO Q when you want ROS 2 on another computer to control the Braccio over the network instead of over USB serial.",
-          "url": "https://github.com/TheAfricanJiant/unoq-braccio/blob/main/app_lab/braccio_remote_agent/README.md"
-        },
-        {
-          "title": "Braccio Smoke Test for Arduino App Lab",
-          "path": "app_lab/braccio_smoke_test/README.md",
-          "blurb": "This is a minimal Arduino App Lab project for validating that the Braccio shield is seated on the UNO Q and that the MCU can drive the servos.",
-          "url": "https://github.com/TheAfricanJiant/unoq-braccio/blob/main/app_lab/braccio_smoke_test/README.md"
-        },
-        {
-          "title": "Braccio Web Agent",
-          "path": "app_lab/braccio_web_agent/README.md",
-          "blurb": "Run this single App Lab app on the UNO Q for the web dashboard.",
-          "url": "https://github.com/TheAfricanJiant/unoq-braccio/blob/main/app_lab/braccio_web_agent/README.md"
-        },
-        {
-          "title": "UNO Q USB Camera Streamer",
-          "path": "app_lab/usb_camera_streamer/README.md",
-          "blurb": "Run this App Lab app on the UNO Q when a USB camera is plugged into the UNO Q and ROS 2 is running on another computer.",
-          "url": "https://github.com/TheAfricanJiant/unoq-braccio/blob/main/app_lab/usb_camera_streamer/README.md"
-        },
-        {
-          "title": "UNOQ Braccio Bridge Brick",
-          "path": "app_lab/bricks/unoq_braccio_bridge/README.md",
-          "blurb": "Reusable App Lab brick for controlling a TinkerKit Braccio shield from an Arduino UNO Q.",
-          "url": "https://github.com/TheAfricanJiant/unoq-braccio/blob/main/app_lab/bricks/unoq_braccio_bridge/README.md"
-        }
-      ],
-      "featured": false,
-      "fork": true,
-      "parent": {
-        "name": "eoinjordan/unoq-braccio",
-        "url": "https://github.com/eoinjordan/unoq-braccio"
-      },
-      "ahead": 10
     },
     {
       "name": "Eviatech_2025",
