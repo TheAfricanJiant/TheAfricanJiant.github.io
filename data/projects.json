@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-03T10:20:39.006Z",
+  "generated": "2026-10-04T11:04:23.388Z",
   "profile": {
     "login": "TheAfricanJiant",
     "name": "Tambu Precious",
@@ -10,6 +10,66 @@
     "url": "https://github.com/TheAfricanJiant"
   },
   "projects": [
+    {
+      "name": "ArIa-Roomba",
+      "title": "Edge Impulse",
+      "description": "A simple Roomba robot using Arduino Uno Q,  XRP controller, encoders and IMU for localization, mapping and Planning.  Egde impulse is used for classification and dirt heatmap generation. ",
+      "url": "https://github.com/TheAfricanJiant/ArIa-Roomba",
+      "homepage": null,
+      "language": "Python",
+      "topics": [],
+      "stars": 0,
+      "forks": 0,
+      "updated": "2026-10-03T18:49:31Z",
+      "created": "2026-05-03T23:02:20Z",
+      "image": "https://raw.githubusercontent.com/TheAfricanJiant/ArIa-Roomba/main/cataria.png",
+      "images": [
+        "https://raw.githubusercontent.com/TheAfricanJiant/ArIa-Roomba/main/cataria.png",
+        "https://raw.githubusercontent.com/TheAfricanJiant/ArIa-Roomba/main/telegram.jpg",
+        "https://raw.githubusercontent.com/TheAfricanJiant/ArIa-Roomba/main/OBJ.png",
+        "https://raw.githubusercontent.com/TheAfricanJiant/ArIa-Roomba/main/explosion-ezgif.gif",
+        "https://raw.githubusercontent.com/TheAfricanJiant/ArIa-Roomba/main/heading.png",
+        "https://raw.githubusercontent.com/TheAfricanJiant/ArIa-Roomba/main/Nav-dashboard.png"
+      ],
+      "og": "https://opengraph.githubassets.com/1/TheAfricanJiant/ArIa-Roomba",
+      "readme": "Records labelled vacuum audio clips from a **Seeed ReSpeaker Lite** (ESP32-S3) and saves them as `.wav` files ready for upload to **Edge Impulse**.\n\nThis demo showcases ARIA's core capabilities running live on the Arduino UNO Q:",
+      "highlights": [
+        "socat PTY,raw,echo=0,link=./xrp-serial TCP:localhost:8888",
+        "!ARIA",
+        "Seeed ReSpeaker Lite (XMOS + ESP32-S3)",
+        "USB cable to PC",
+        "Vacuum cleaner under test",
+        "📐 Encoders & IMU — real-time wheel odometry and inertial measurement feeding the EKF pose estimator"
+      ],
+      "sections": [
+        {
+          "title": "ARIA — Step Four: Integrated Robot Platform 🤖",
+          "path": "ARIA-step-four/README.md",
+          "blurb": "ARIA Step Four is the integration of three prior projects into one cohesive app:",
+          "url": "https://github.com/TheAfricanJiant/ArIa-Roomba/blob/main/ARIA-step-four/README.md"
+        },
+        {
+          "title": "Telegram Bot",
+          "path": "telegram-bot-step-three/README.md",
+          "blurb": "The **Telegram Bot** example demonstrates how to create an interactive bot that responds to commands, analyzes text sentiment, and detects objects in images sent via Telegram.",
+          "url": "https://github.com/TheAfricanJiant/ArIa-Roomba/blob/main/telegram-bot-step-three/README.md"
+        },
+        {
+          "title": "Linux Blink with UI (JavaScript)",
+          "path": "UnoQXRPEKF-step-two/README.md",
+          "blurb": "The **Linux Blink** example shows a simple Linux application that changes the LED state on the board. It showcases basic event handling and UI updates through a web-based...",
+          "url": "https://github.com/TheAfricanJiant/ArIa-Roomba/blob/main/UnoQXRPEKF-step-two/README.md"
+        },
+        {
+          "title": "Linux Blink with UI (JavaScript)",
+          "path": "UnoQXRPmotor-step-one/README.md",
+          "blurb": "The **Linux Blink** example shows a simple Linux application that changes the LED state on the board. It showcases basic event handling and UI updates through a web-based...",
+          "url": "https://github.com/TheAfricanJiant/ArIa-Roomba/blob/main/UnoQXRPmotor-step-one/README.md"
+        }
+      ],
+      "featured": false,
+      "fork": false
+    },
     {
       "name": "simpleXRP",
       "title": "simpleXRP",
