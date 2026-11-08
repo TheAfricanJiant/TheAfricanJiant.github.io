@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-07T11:39:39.053Z",
+  "generated": "2026-11-08T11:52:01.166Z",
   "profile": {
     "login": "TheAfricanJiant",
     "name": "Tambu Precious",
@@ -10,6 +10,38 @@
     "url": "https://github.com/TheAfricanJiant"
   },
   "projects": [
+    {
+      "name": "quantumX",
+      "title": "QuantumX Documentation — Master Index",
+      "description": "Index all specifications and show how the documents and stages relate, and where each one stands.",
+      "url": "https://github.com/TheAfricanJiant/quantumX",
+      "homepage": null,
+      "language": "Python",
+      "topics": [],
+      "stars": 0,
+      "forks": 0,
+      "updated": "2026-11-08T08:37:44Z",
+      "created": "2026-11-08T07:12:26Z",
+      "image": "https://raw.githubusercontent.com/TheAfricanJiant/quantumX/main/docs/assets/favicon.svg",
+      "images": [
+        "https://raw.githubusercontent.com/TheAfricanJiant/quantumX/main/docs/assets/favicon.svg"
+      ],
+      "og": "https://opengraph.githubassets.com/1/TheAfricanJiant/quantumX",
+      "readme": "Index all specifications and show how the documents and stages relate, and where each one stands.\n\nCovers the 16 specification documents in this folder plus this index. Source mandate: the Project Research and Engineering Specification.",
+      "highlights": [
+        "How to run: every command, from recording to research runs."
+      ],
+      "sections": [
+        {
+          "title": "QuantumX Documentation — Master Index",
+          "path": "docs/README.md",
+          "blurb": "Index all specifications and show how the documents and stages relate, and where each one stands.",
+          "url": "https://github.com/TheAfricanJiant/quantumX/blob/main/docs/README.md"
+        }
+      ],
+      "featured": false,
+      "fork": false
+    },
     {
       "name": "ArIa-Roomba",
       "title": "Edge Impulse",
